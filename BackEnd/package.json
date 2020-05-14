@@ -1,0 +1,32 @@
+{
+  "name": "abasto-en-casa",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "DEBUG=abasto-en-casa:* nodemon ./bin/www",
+    "dev-windows": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cloudinary": "^1.21.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.2.10",
+    "morgan": "^1.9.0",
+    "multer": "^1.4.2",
+    "multer-storage-cloudinary": "^2.2.1",
+    "node-sass-middleware": "^0.11.0",
+    "passport": "^0.4.1",
+    "passport-facebook": "^3.0.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local-mongoose": "^6.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
