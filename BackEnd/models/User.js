@@ -2,6 +2,7 @@ const { Schema, model } = require('mongoose');
 const PLM = require('passport-local-mongoose');
 
 const userSchema = new Schema({
+    rol: {type: String, enum:[ 'admin', 'user' ], default: 'user'},
     name: { type: String },
     email: { type: String },
     facebookId: { type: String },

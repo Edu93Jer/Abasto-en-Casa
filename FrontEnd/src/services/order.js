@@ -6,24 +6,24 @@ const service = axios.create({
 })
 
 const ORDER_SERVICE = {
- CREATE: async ( data) =>  {
+ CREATE: async ( data ) =>  {
   return await service.post( '/order/create', data)
  },
 
  ALL: async ( ) => {
-  return await service.get( '/order/all', )
+  return await service.get( '/order/all' )
  },
 
- DETAIL: async ( ) => {
-  return await service.get( '/order/:id', )
+ DETAIL: async ( id ) => {
+  return await service.get( `/order/${id}` )
  },
 
- UPDATE: async ( ) => {
-  return await service.patch( '/order/edit/:id', )
+ UPDATE: async ( { id, data } ) => {
+  return await service.patch( `/order/edit/${id}`, data )
  },
 
- DELETE: async ( ) => {
-  return await service.delete( '/order/:id', )
+ DELETE: async ( id ) => {
+  return await service.delete( `/order/${id}` )
  },
 }
 

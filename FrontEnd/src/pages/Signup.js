@@ -30,33 +30,24 @@ class Signup extends Component{
     loading: false,
   }
 
-//  async componentDidMount() {
-//     if (this.props.location.search === '?status=success') {
-//       const response = await AUTH_SERVICE.CURRENTUSER()
-//       //this.setState({ loggedUser: response.user })
-//       this.context.logUser( response.user )
-//     }
-//   }
-
   onFinish = async (values) => {
     this.setState({ loading: true })
     const response = await handleAsync(() => AUTH_SERVICE.SIGNUP(values));
     console.log(response)
     if (response.err) {
-      this.setState({ msg: response.err.message })
+      this.setState({ msg: response.err.message, loading: false })
     } else {
-      this.setState({ msg: response.message })
-      this.context.logUser( response.data.user )
+      this.setState({ msg: response.message, loading: false })
+      this.context.logUser( response.user )
       this.props.history.push("/profile")
     }
-    this.setState({ loading: false })
   };
 
-  onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
   render(){
   return (
+    <>
+    {!this.state.loading && <p>{this.state.msg}</p>}
+    {this.state.loading && <p>Loading...</p>}
     <Form {...formItemLayout} name="register" onFinish={this.onFinish} scrollToFirstError>
       <Form.Item name="name" rules={
         [{ required: true, message: 'Please input your name!', whitespace: true, }]
@@ -103,8 +94,10 @@ class Signup extends Component{
         </Button>
       </Form.Item>
     </Form>
+    </>
   )
-}}
+}
+}
 
 Signup.contextType = MyContext
 

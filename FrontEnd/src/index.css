@@ -48,6 +48,7 @@ code {
 
 .ant-layout-header {
   background:#7cb305 !important;
+  padding: 0 15px !important;
 }
 
 .ant-menu.ant-menu-dark {
@@ -66,31 +67,60 @@ code {
   color: #fa8c16 !important;
 }
 
-/* .ant-menu-submenu-arrow {
-  color: #fa8c16 !important;
-}
-.ant-menu-submenu-arrow::after {
-  color: #fa8c16 !important;
-  background: linear-gradient(right, #fa8c16, #fa8c16)
-}
-.ant-menu-submenu-arrow::before {
-  color: #fa8c16 !important;
-  background: linear-gradient(right, #fa8c16, #fa8c16)
-} */
-
 .ant-menu-sub{
   background:#f4ffb8 !important;
 }
 
-#components-form-demo-normal-login .login-form {
-  max-width: 300px;
+.login-form {
+  max-width: 300px !important;
 }
-#components-form-demo-normal-login .login-form-forgot {
-  float: right;
+.login-form-forgot {
+  float: right !important;
 }
-#components-form-demo-normal-login .ant-col-rtl .login-form-forgot {
-  float: left;
+.ant-col-rtl .login-form-forgot {
+  float: left !important;
 }
-#components-form-demo-normal-login .login-form-button {
-  width: 100%;
+.login-form-button {
+  width: 100% !important;
+}
+
+.GgLogin{
+  font-size: x-large;
+  color: #DB4437 !important;
+}
+
+.FbLogin{
+  font-size: x-large !important;
+  color: #3b5998 !important;
+}
+
+.GgLoginContainer{
+  border-color: #DB4437 !important;
+  border-radius: 12px !important;
+}
+
+.FbLoginContainer{
+  border-color: #3b5998 !important;
+  border-radius: 12px !important;
+}
+
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 160px;
+  line-height: 160px;
+  background: #364d79;
+  overflow: hidden;
+}
+
+.ant-carousel .slick-slide h3 {
+  color: #fff;
+}
+
+.site-card-wrapper{
+  padding: 20px !important;
+  display: flex;
+}
+
+.productCard {
+  margin: 5px !important;
 }

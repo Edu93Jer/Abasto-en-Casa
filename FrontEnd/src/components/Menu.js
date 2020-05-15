@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Layout, Menu } from 'antd';
-import { ShoppingTwoTone , UserOutlined, ShopTwoTone, QuestionCircleTwoTone, LogoutOutlined } from '@ant-design/icons';
+import { ShoppingTwoTone , UserOutlined, ShopTwoTone, QuestionCircleTwoTone, LogoutOutlined, HomeTwoTone, ApiTwoTone } from '@ant-design/icons';
 import { Link, withRouter } from 'react-router-dom'
-
+import { MyContext } from '../context/context'
 import AUTH_SERVICE from '../services/auth'
 
 import '../index.css'
@@ -14,6 +14,7 @@ class NavMenu extends Component {
 
   logOut = async () => {
       await AUTH_SERVICE.LOGOUT();
+      this.context.logUser( null )
       this.props.history.push("/");
     };
 
@@ -32,24 +33,27 @@ render(){
     >
       <div className="logo" />
       <Menu className="Navbar" mode="inline">
-        <Menu.Item key="1" icon={<UserOutlined />}>
+        <Menu.Item key="1" icon={<UserOutlined style={{fontSize: 'large'}} />}>
           <Link to='/profile'> Profile </Link>
         </Menu.Item>
-        <Menu.Item key="2" icon={<ShoppingTwoTone twoToneColor="#fa8c16" />}>
+        <Menu.Item key="100" icon={<ApiTwoTone style={{fontSize: 'large'}} twoToneColor="#fa8c16" />}>
+          <Link to='/product/create'> Agregar Productos al API </Link>
+        </Menu.Item>
+        <Menu.Item key="2" icon={<ShoppingTwoTone style={{fontSize: 'large'}} twoToneColor="#fa8c16" />}>
         <Link to='/orders'> Pedidos </Link>
         </Menu.Item>
-        <SubMenu key="sub1" icon={<ShopTwoTone twoToneColor="#fa8c16" />} title="Departamentos">
+        <SubMenu key="sub1" icon={<ShopTwoTone style={{fontSize: 'large'}} twoToneColor="#fa8c16" />} title="Departamentos">
             <Menu.Item key="3">Abarrotes</Menu.Item>
             <Menu.Item key="4">Carnes y Salchichonería</Menu.Item>
             <Menu.Item key="5">Frutas</Menu.Item>
             <Menu.Item key="6">Verduras</Menu.Item>
           </SubMenu>
-        <SubMenu key="sub2" icon={<QuestionCircleTwoTone twoToneColor="#fa8c16" />} title="Ayuda">
+        <SubMenu key="sub2" icon={<QuestionCircleTwoTone style={{fontSize: 'large'}} twoToneColor="#fa8c16" />} title="Ayuda">
             <Menu.Item key="7">Preguntas Frecuentes</Menu.Item>
-            <Menu.Item key="8">Términos y Condiciones</Menu.Item>
+            <Menu.Item key="8"><Link to="/terms">Términos y Condiciones</Link></Menu.Item>
             <Menu.Item key="9">Contáctanos</Menu.Item>
           </SubMenu>
-        <Menu.Item key="11" icon={<LogoutOutlined />}  onClick={this.logOut}>
+        <Menu.Item key="11" icon={<LogoutOutlined style={{fontSize: 'large'}} />}  onClick={this.logOut}>
           Log Out
         </Menu.Item>
       </Menu>
@@ -58,6 +62,9 @@ render(){
     <Header className="header">
       <div className="logo" />
       <Menu theme="dark" mode="horizontal">
+        <Link to='/'>
+          <HomeTwoTone twoToneColor="#fa8c16" style={{fontSize: 'x-large'}} />
+        </Link>
         <Menu.Item key="1"><Link to='/login'>Iniciar Sesión</Link></Menu.Item>
         <Menu.Item key="2"><Link to='/signup'>Crear Cuenta</Link></Menu.Item>
         <Menu.Item key="3"><Link to='/cart'>Carrito</Link></Menu.Item>
@@ -68,11 +75,13 @@ render(){
           {this.props.children}
         </div>
       </Content>
-      <Footer className="Navbar" style={{ textAlign: 'center' }}>Abasto en Casa® ©2020 Created with <span role="img" aria-label="heart">❤️</span> by Edu.ZJ</Footer>
+      <Footer className="Navbar" style={{ textAlign: 'center' }}>Abasto en Casa® ©2020 Created with <span role="img" aria-label="created">🧠, 🥚🥚's & ❤️</span> by Edu.ZJ</Footer>
     </Layout>
     </Layout>
    )
   }
 }
+
+NavMenu.contextType = MyContext
 
 export default withRouter(NavMenu)

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-// Import controllers
+const{ isLogged } = require( '../middlewares/middlewares')
 
 const {
  createProduct, allProducts, detailProduct, updateProduct, deleProduct
@@ -10,7 +10,7 @@ const {
 
 //Create
 
-router.post('/product/create', createProduct)
+router.post('/product/create', isLogged, createProduct)
 
 //Read
 
@@ -19,10 +19,10 @@ router.get('/product/:id', detailProduct)
 
 //Update
 
-router.patch('/product/edit/:id', updateProduct)
+router.patch('/product/edit/:id', isLogged, updateProduct)
 
 //Delete
 
-router.delete('/product/:id', deleProduct)
+router.delete('/product/:id', isLogged, deleProduct)
 
 module.exports = router;

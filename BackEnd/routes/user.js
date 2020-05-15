@@ -1,12 +1,6 @@
 const router = require('express').Router();
 
-
-const{
- isLogged
-} = require( '../middlewares/middlewares')
-
-
-// Import Controllers
+const{ isLogged } = require( '../middlewares/middlewares')
 
 const {
  profileGet, profileEdit, profileDel
@@ -24,10 +18,10 @@ router.get('/profile', isLogged, profileGet)
 
 //Update
 
-router.patch('/profile/edit', profileEdit)
+router.patch('/profile/edit', isLogged, profileEdit)
 
 //Delete
 
-router.delete('/profile/delete', profileDel)
+router.delete('/profile/delete', isLogged, profileDel)
 
 module.exports = router;

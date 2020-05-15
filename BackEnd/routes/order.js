@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-// Import controllers
+const{ isLogged } = require( '../middlewares/middlewares')
 
 const {
  createOrder, allOrders, detailOrder, updateOrder, deleOrder
@@ -19,11 +19,11 @@ router.get('/order/:id', detailOrder)
 
 //Update
 
-router.patch('/order/edit/:id', updateOrder)
+router.patch('/order/edit/:id', isLogged, updateOrder)
 
 //Delete
 
-router.delete('/order/:id', deleOrder)
+router.delete('/order/:id', isLogged, deleOrder)
 
 
 module.exports = router;

@@ -11,12 +11,12 @@ const PROFILE_SERVICE = {
   return await service.get( '/profile', )
  },
 
- UPDATE: async ( ) => {
-  return await service.patch( '/product/edit', )
+ UPDATE: async ( data ) => {
+  return await service.patch( '/profile/edit', data )
  },
 
  DELETE: async ( ) => {
-  return await service.delete( '/product/delete', )
+  return await service.delete( '/profile/delete', )
  },
 }
 

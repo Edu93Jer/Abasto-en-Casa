@@ -6,24 +6,24 @@ const service = axios.create({
 })
 
 const PRODUCT_SERVICE = {
- CREATE: async ( ) =>  {
-  return await service.post( '/product/create', )
+ CREATE: async ( data ) =>  {
+  return await service.post( '/product/create', data )
  },
 
  ALL: async ( ) => {
   return await service.get( '/product/all', )
  },
 
- DETAIL: async ( ) => {
-  return await service.get( '/product/:id', )
+ DETAIL: async ( id ) => {
+  return await service.get( `/product/${id}` )
  },
 
- UPDATE: async ( ) => {
-  return await service.patch( '/product/edit/:id', )
+ UPDATE: async ( { id , data } ) => {
+  return await service.patch( `/product/edit/${id}`, data )
  },
 
- DELETE: async ( ) => {
-  return await service.delete( '/product/:id', )
+ DELETE: async ( id ) => {
+  return await service.delete( `/product/${id}` )
  },
 }
 
