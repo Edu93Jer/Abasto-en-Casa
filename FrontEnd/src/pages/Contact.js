@@ -1,34 +1,36 @@
 import React, { Component } from 'react'
 import PROFILE_SERVICE from '../services/user'
 import { Form, Input, Button } from 'antd'
-import { MyContext } from '../context/context'
-class Profile extends Component {
+class Mailbox extends Component {
+  state = {
+    msg: null,
+    loading: false,
+  }
 
- async componentDidMount() {
-  //const response = await PROFILE_SERVICE.PROFILE()
- }
 
  onFinish = async ( values ) => {
- await PROFILE_SERVICE.UPDATE( values );
- this.props.history.push("/")
- }
+  await PROFILE_SERVICE.CREATEMESSAGE( values );
+  this.props.history.push("/contact")
+  this.setState({ msg: 'Mensaje enviado, dentro de 24 horas contestaremos su mesaje.' })
+  }
+
+  // async componentDidUpdate(prevProps) {
+  //   if (this.props !== prevProps) {
+  //   this.props.history.push("/contact")
+  //   }
+  // }
 
  render() {
   return(
-  <MyContext.Consumer>
-  {({ loggedUser }) => {
-   console.log(loggedUser)
-   return (
    <>
-   <p>{this.loggedUser}</p>
-   <h1>Mi Perfil</h1>
-   <h4>Edita tu cuenta</h4>
-
+   {this.state.msg && <p>{this.state.msg}</p>}
+   <h1>CUÉNTANOS ALGO</h1>
+   <h4>Si tienes cualquier pregunta o comentario, por favor usa el formulario a continuación.</h4>
    <br/>
    <div>
       <Form labelCol={{ span: 4 }}
         wrapperCol={{ span: 14 }}
-        layout="vertical"
+        layout="horizontal"
          onFinish={this.onFinish}
          name= 'product'>
         <Form.Item initialValues={this.initialValues} label="Nombre:" name="name" rules={[{ required: true, message: 'Por favor inserta tu nombre completo' }]}>
@@ -37,27 +39,22 @@ class Profile extends Component {
         <Form.Item label="Correo:" name="mail" rules={[{ type: 'email', message: 'La entrada no es un correo electrónico válido' }, { required: true, message: 'Inserta tu correo electrónico' }]}>
           <Input placeholder="Correo electrónico."/>
         </Form.Item>
-        <Form.Item label="Télefono:" name="telephone">
+        <Form.Item label="Télefono" name="telephone">
           <Input placeholder="Télefono de contacto."/>
         </Form.Item>
-        <Form.Item  label="Domicilio" name='body' rules={[{ required: true, message: 'Inserta el mensaje a enviar' }]}>
-        <Input placeholder="Por favor ingrese la dirección de entrega."/>
+        <Form.Item  label="Mensaje" name='body' rules={[{ required: true, message: 'Inserta el mensaje a enviar' }]}>
+        <Input.TextArea placeholder="Por favor escribanos su mensaje."/>
       </Form.Item>
       <Form.Item>
         <Button type="primary" htmlType="submit">
-          Actualizar Perfil
+          Enviar mensaje
         </Button>
       </Form.Item>
       </Form>
     </div>
-    </>
-   )
-  }}
-  </MyContext.Consumer>
+   </>
   )
  }
 }
 
-export default Profile
-
-
+export default Mailbox

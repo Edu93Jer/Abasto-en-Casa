@@ -7,6 +7,10 @@ const service = axios.create({
 
 const PROFILE_SERVICE = {
 
+ CREATEMESSAGE: async ( data ) => {
+  return await service.post( '/mailbox', data )
+ },
+
  PROFILE: async ( ) => {
   return await service.get( '/profile', )
  },

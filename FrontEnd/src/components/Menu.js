@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Layout, Menu } from 'antd';
-import { ShoppingTwoTone , UserOutlined, ShopTwoTone, QuestionCircleTwoTone, LogoutOutlined, HomeTwoTone, ApiTwoTone } from '@ant-design/icons';
+import { ShoppingTwoTone , UserOutlined, ShopTwoTone, QuestionCircleTwoTone, LogoutOutlined, HomeTwoTone, ApiTwoTone, ShoppingCartOutlined } from '@ant-design/icons';
 import { Link, withRouter } from 'react-router-dom'
 import { MyContext } from '../context/context'
 import AUTH_SERVICE from '../services/auth'
@@ -25,10 +25,8 @@ render(){
       breakpoint="lg"
       collapsedWidth="0"
       onBreakpoint={broken => {
-        console.log(broken);
       }}
       onCollapse={(collapsed, type) => {
-        console.log(collapsed, type);
       }}
     >
       <div className="logo" />
@@ -43,15 +41,15 @@ render(){
         <Link to='/orders'> Pedidos </Link>
         </Menu.Item>
         <SubMenu key="sub1" icon={<ShopTwoTone style={{fontSize: 'large'}} twoToneColor="#fa8c16" />} title="Departamentos">
-            <Menu.Item key="3">Abarrotes</Menu.Item>
-            <Menu.Item key="4">Carnes y Salchichonería</Menu.Item>
-            <Menu.Item key="5">Frutas</Menu.Item>
-            <Menu.Item key="6">Verduras</Menu.Item>
+            <Menu.Item key="3"><Link to='/product/department?department=market'>Abarrotes</Link></Menu.Item>
+            <Menu.Item key="4"><Link to='/product/department?department=meats'>Carnes y Salchichonería</Link></Menu.Item>
+            <Menu.Item key="5"><Link to='/product/department?department=fruits'>Frutas</Link></Menu.Item>
+            <Menu.Item key="6"><Link to='/product/department?department=vegetables'>Verduras</Link></Menu.Item>
           </SubMenu>
         <SubMenu key="sub2" icon={<QuestionCircleTwoTone style={{fontSize: 'large'}} twoToneColor="#fa8c16" />} title="Ayuda">
-            <Menu.Item key="7">Preguntas Frecuentes</Menu.Item>
+            <Menu.Item key="7"><Link to="/faq">Preguntas Frecuentes</Link></Menu.Item>
             <Menu.Item key="8"><Link to="/terms">Términos y Condiciones</Link></Menu.Item>
-            <Menu.Item key="9">Contáctanos</Menu.Item>
+            <Menu.Item key="9"><Link to="/contact">Contáctanos</Link></Menu.Item>
           </SubMenu>
         <Menu.Item key="11" icon={<LogoutOutlined style={{fontSize: 'large'}} />}  onClick={this.logOut}>
           Log Out
@@ -65,9 +63,11 @@ render(){
         <Link to='/'>
           <HomeTwoTone twoToneColor="#fa8c16" style={{fontSize: 'x-large'}} />
         </Link>
+
         <Menu.Item key="1"><Link to='/login'>Iniciar Sesión</Link></Menu.Item>
         <Menu.Item key="2"><Link to='/signup'>Crear Cuenta</Link></Menu.Item>
-        <Menu.Item key="3"><Link to='/cart'>Carrito</Link></Menu.Item>
+        <Menu.Item key="3"><Link to='/cart'><ShoppingCartOutlined twoToneColor="#fa8c16" style={{fontSize: 'x-large'}} />Carrito</Link></Menu.Item>
+
       </Menu>
     </Header>
       <Content  style={{ margin: '24px 16px 0' }}>
@@ -75,7 +75,8 @@ render(){
           {this.props.children}
         </div>
       </Content>
-      <Footer className="Navbar" style={{ textAlign: 'center' }}>Abasto en Casa® ©2020 Created with <span role="img" aria-label="created">🧠, 🥚🥚's & ❤️</span> by Edu.ZJ</Footer>
+      <Footer className="Navbar" style={{ textAlign: 'center' }}>Abasto en Casa® ©2020 </Footer>
+      {/* <Footer className="Navbar" style={{ textAlign: 'center' }}>Abasto en Casa® ©2020 Created with <span role="img" aria-label="created">🧠, 🥚🥚's & ❤️</span> by Edu.ZJ</Footer> */}
     </Layout>
     </Layout>
    )

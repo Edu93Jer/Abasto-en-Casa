@@ -8,11 +8,9 @@ import './index.css';
 import 'antd/dist/antd.css';
 
 ReactDOM.render(
-  <React.StrictMode>
     <ContextProvider>
       <AppRouter />
-    </ContextProvider>
-  </React.StrictMode>,
+    </ContextProvider>,
   document.getElementById('root')
 );
 

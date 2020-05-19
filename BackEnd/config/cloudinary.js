@@ -12,7 +12,7 @@ cloudinary.config({
 
 const storage = cloudinaryStorage({
   cloudinary,
-  folder: 'ProfilePics',
+  folder: 'AbastoProducts',
   allowedFormats: ['jpg', 'png', 'jpeg'],
   filename: function (req, file, cb) {
     cb(null, file.originalname)

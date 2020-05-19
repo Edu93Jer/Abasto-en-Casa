@@ -7,7 +7,7 @@ const AdminRoute = ({ component: Component, ...rest }) => (
     {({ loggedUser }) => (
       <Route
         {...rest}
-        render={props => ( loggedUser.rol === 'admin' ? <Component {...props} /> : <Redirect to="/login" />)}
+        render={props => ( loggedUser?.rol === 'admin' ? <Component {...props} /> : <Redirect to="/login" />)}
       />
     )}
   </MyContext.Consumer>

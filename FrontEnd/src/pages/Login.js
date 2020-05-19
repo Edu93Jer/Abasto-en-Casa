@@ -16,7 +16,6 @@ class Login extends Component {
   onFinish = async ( values ) => {
     this.setState({ loading: true })
     const response = await handleAsync(() => AUTH_SERVICE.LOGIN( values ));
-    console.log(response)
     if (response.err) {
       this.setState({ msg: response.err.message, loading: false })
     } else {

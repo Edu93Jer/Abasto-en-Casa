@@ -18,12 +18,20 @@ const PRODUCT_SERVICE = {
   return await service.get( `/product/${id}` )
  },
 
+ DEPARTMENT: async ( data ) => {
+  return await service.get( `/product/department${data}`)
+ },
+
  UPDATE: async ( { id , data } ) => {
   return await service.patch( `/product/edit/${id}`, data )
  },
 
  DELETE: async ( id ) => {
   return await service.delete( `/product/${id}` )
+ },
+
+ UPLOAD_IMG: async ( values ) => {
+  return await service.post( `/upload`, values)
  },
 }
 

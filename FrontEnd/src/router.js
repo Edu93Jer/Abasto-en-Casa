@@ -12,6 +12,9 @@ import Cart from './pages/Cart';
 import Orders from './pages/Orders';
 import Terms from './pages/Terms';
 import CreateProduct from './pages/CreateProduct'
+import Department from './pages/DepartmentView'
+import FAQ from './pages/FAQ';
+import Mailbox from './pages/Contact';
 
 const AppRouter = () => (
   <Router>
@@ -20,11 +23,14 @@ const AppRouter = () => (
         <Route exact component={Home} path="/" />
         <Route exact component={Signup} path="/signup" />
         <Route exact component={Login} path="/login" />
-        <PrivateRoute exact component={Profile} path="/profile" />
+        <Route exact component={Profile} path="/profile" />
         <PrivateRoute exact component={Cart} path="/cart" />
         <PrivateRoute exact component={Orders} path="/orders" />
-        <Route exact component={Terms} path="/terms" />
         <AdminRoute exact component={CreateProduct} path="/product/create" />
+        <Route component={Department} path="/product/department/" />
+        <Route exact component={Terms} path="/terms" />
+        <Route exact component={FAQ} path="/faq" />
+        <Route exact component={Mailbox} path="/contact" />
       </Switch>
     </NavMenu>
   </Router>

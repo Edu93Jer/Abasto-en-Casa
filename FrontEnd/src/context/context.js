@@ -6,7 +6,7 @@ export const MyContext = createContext()
  export class ContextProvider extends Component {
  state={
   loggedUser: null,
-  // rol: '',
+  cart: {},
  }
 
 async componentDidMount() {
@@ -16,7 +16,6 @@ async componentDidMount() {
 
 logUser = ( user ) => {
  this.setState({ loggedUser: user})
- // this.setState({ loggedUser: user, rol: user.rol })
 }
 
 logout = async () => {
@@ -26,11 +25,9 @@ logout = async () => {
 
 render() {
  const { loggedUser } = this.state;
- // const { loggedUser, rol } = this.state;
  const { logUser, logout } = this;
  return (
   <MyContext.Provider value={{ loggedUser, logUser, logout }}>
-  {/* <MyContext.Provider value={{ loggedUser, rol, logUser, logout }}> */}
    { this.props.children }
   </MyContext.Provider>
  )

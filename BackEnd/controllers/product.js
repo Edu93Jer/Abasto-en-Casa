@@ -10,6 +10,13 @@ exports.allProducts = async ( req, res ) => {
  res.status(200).json({ products })
 }
 
+exports.departmentProduct = async ( req, res ) => {
+ const data = req.query
+ console.log(data)
+ const department = await Product.find( data )
+ res.status(200).json({ department })
+}
+
 exports.detailProduct = async ( req, res ) => {
  const { id } = req.params
  const product = await Product.findById( id )
