@@ -13,7 +13,7 @@ function ProductCard({ imgURL, name, price, measurement, onClick}) {
       cover={<img alt={ name } src={ imgURL } />}
       onClick= {() => onClick() }
     >
-      <Meta title={ name } description={`$${price}.00 : ${measurement}` } />
+      <Meta title={ name } description={`$${price} / ${measurement}` } />
     </Card>
   )
 }

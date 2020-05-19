@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Layout, Menu } from 'antd';
-import { ShoppingTwoTone , UserOutlined, ShopTwoTone, QuestionCircleTwoTone, LogoutOutlined, HomeTwoTone, ApiTwoTone, ShoppingCartOutlined } from '@ant-design/icons';
+import { ShoppingTwoTone , UserOutlined, ShopTwoTone, QuestionCircleTwoTone, LogoutOutlined, ApiTwoTone, ShoppingCartOutlined } from '@ant-design/icons';
 import { Link, withRouter } from 'react-router-dom'
 import { MyContext } from '../context/context'
 import AUTH_SERVICE from '../services/auth'
@@ -28,18 +28,22 @@ render(){
       }}
       onCollapse={(collapsed, type) => {
       }}
+      style={{ position: 'fixed', zIndex: 99, height: '100vh'}}
     >
       <div className="logo" />
       <Menu className="Navbar" mode="inline">
+      {this.context.loggedUser?.rol &&
         <Menu.Item key="1" icon={<UserOutlined style={{fontSize: 'large'}} />}>
           <Link to='/profile'> Profile </Link>
-        </Menu.Item>
+        </Menu.Item>}
+      {this.context.loggedUser?.rol === 'admin' &&
         <Menu.Item key="100" icon={<ApiTwoTone style={{fontSize: 'large'}} twoToneColor="#fa8c16" />}>
           <Link to='/product/create'> Agregar Productos al API </Link>
-        </Menu.Item>
+        </Menu.Item>}
+      {this.context.loggedUser?.rol &&
         <Menu.Item key="2" icon={<ShoppingTwoTone style={{fontSize: 'large'}} twoToneColor="#fa8c16" />}>
         <Link to='/orders'> Pedidos </Link>
-        </Menu.Item>
+        </Menu.Item>}
         <SubMenu key="sub1" icon={<ShopTwoTone style={{fontSize: 'large'}} twoToneColor="#fa8c16" />} title="Departamentos">
             <Menu.Item key="3"><Link to='/product/department?department=market'>Abarrotes</Link></Menu.Item>
             <Menu.Item key="4"><Link to='/product/department?department=meats'>Carnes y Salchichonería</Link></Menu.Item>
@@ -57,11 +61,15 @@ render(){
       </Menu>
     </Sider>
     <Layout>
-    <Header className="header">
+    <Header className="header" style={{ position: 'fixed', zIndex: 98, width: '100%'}}>
       <div className="logo" />
       <Menu theme="dark" mode="horizontal">
         <Link to='/'>
-          <HomeTwoTone twoToneColor="#fa8c16" style={{fontSize: 'x-large'}} />
+          <img
+          src='https://res.cloudinary.com/abasto-en-casa/image/upload/v1589906088/AbastoProducts/Logo_01.png.png'
+          alt='logo'
+          className='LogoMenu'
+          />
         </Link>
 
         <Menu.Item key="1"><Link to='/login'>Iniciar Sesión</Link></Menu.Item>

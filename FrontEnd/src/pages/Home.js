@@ -27,11 +27,15 @@ class Home extends Component {
     this.setState({ products, modalVisible });
   }
 
-  handleOk = () => this.setModalVisible(false);
+  removeProduct = async ( id ) => {
+    await PRODUCT_SERVICE.DELETE(id)
+    this.setModalVisible(id)
+    const { products } = this.state
+    const stateUpdated = products.filter((product) => product._id !== id)
+    this.setState({products: stateUpdated})
+  }
 
-  handleCancel = () => this.setModalVisible(false);
-
-  setModalVisible = id => {
+  setModalVisible = (id) => {
     this.setState(prevstate => {
       return {
         ...prevstate,
@@ -44,7 +48,6 @@ class Home extends Component {
     const { modalVisible } = this.state;
     return (
       <>
-        <h1>Aqui va el HOME</h1>
         <CarouselHome />
         <div className="site-card-wrapper">
           <Row gutter={16}>
@@ -56,6 +59,10 @@ class Home extends Component {
                     name={item.name}
                     imgURL={item.imgURL}
                     description={item.description}
+                    price={item.price}
+                    measurement={item.measurement}
+                    _id={item._id}
+                    removeProduct={() => this.removeProduct(item._id)}
                     modalVisible={modalVisible[item._id]}
                     handleOk={() => this.setModalVisible(item._id)}
                     handleCancel={() => this.setModalVisible(item._id)}

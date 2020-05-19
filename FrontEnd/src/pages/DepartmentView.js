@@ -29,9 +29,10 @@ async componentDidUpdate(prevProps) {
   }
 }
 
-handleOk = () => this.setModalVisible(false);
-
-handleCancel = () => this.setModalVisible(false);
+removeProduct = async (id) => {
+  await PRODUCT_SERVICE.DELETE(id)
+  this.setModalVisible(id)
+}
 
   setModalVisible = id => {
     this.setState(prevstate => {
@@ -59,6 +60,10 @@ handleCancel = () => this.setModalVisible(false);
         name={item.name}
         imgURL={item.imgURL}
         description={item.description}
+        price={item.price}
+        measurement={item.measurement}
+        _id={item._id}
+        removeProduct={() => this.removeProduct(item._id)}
         modalVisible={modalVisible[item._id]}
         handleOk={() => this.setModalVisible(item._id)}
         handleCancel={() => this.setModalVisible(item._id)}

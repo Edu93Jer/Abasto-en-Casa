@@ -22,7 +22,7 @@ const PRODUCT_SERVICE = {
   return await service.get( `/product/department${data}`)
  },
 
- UPDATE: async ( { id , data } ) => {
+ UPDATE: async ( id , data ) => {
   return await service.patch( `/product/edit/${id}`, data )
  },
 

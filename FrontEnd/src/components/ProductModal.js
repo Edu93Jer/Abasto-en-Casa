@@ -5,10 +5,12 @@ import CardDetail from './CardDetail'
 function ModalDetail(props) {
   const{
    name,
+   _id,
    imgURL,
-   // price,
-   // measurement,
+   price,
+   measurement,
    description,
+   removeProduct,
    modalVisible,
    handleOk,
    handleCancel,
@@ -24,9 +26,11 @@ function ModalDetail(props) {
     <CardDetail
     imgURL={ imgURL }
     name={ name }
-    // price={ price }
-    // measurement={ measurement }
+    price={ price }
+    measurement={ measurement }
     description={ description }
+    _id= { _id }
+    removeProduct={ removeProduct }
     />
    </Modal>
   );
@@ -34,35 +38,3 @@ function ModalDetail(props) {
 
 export default ModalDetail
 
-// function ModalDetail() {
-//  state = {
-//    modalVisible: false,
-//  };
-
-//  setModalVisible(modalVisible) {
-//    this.setState({ modalVisible });
-//  }
-
-//  render() {
-//    return (
-//      <div>
-//        <EyeOutlined onClick={() => this.setModalVisible(true)}/>
-//        <Modal
-//          title="Nombre del Producto"
-//          centered
-//          visible={this.state.modalVisible}
-//          onOk={() => this.setModalVisible(false)}
-//          onCancel={() => this.setModalVisible(false)}
-//        >
-//          <CardDetail
-//           imgURL={ imgURL }
-//           name={ name }
-//           price={ price }
-//           measurement={ measurement }
-//           description={ description }
-//          />
-//        </Modal>
-//      </div>
-//    );
-//  }
-// }

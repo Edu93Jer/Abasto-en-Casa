@@ -48,8 +48,12 @@ code {
 
 .ant-layout-header {
   background:#7cb305 !important;
-  padding: 0 15px !important;
+  padding: 0 20px !important;
+  height: 85px !important;
 }
+
+/* ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal
+esta clase se supone es donde tengo que separara el login y signup de mi logo (header) */
 
 .ant-menu.ant-menu-dark {
   background:#7cb305 !important;
@@ -123,4 +127,14 @@ code {
 
 .productCard {
   margin: 5px !important;
+}
+
+.ImgUpdate{
+  width: 150px;
+  height: auto;
+}
+
+.LogoMenu{
+  width: 110px;
+  height: auto;
 }

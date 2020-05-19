@@ -4,24 +4,19 @@ import { Form, Input, Button } from 'antd'
 import { MyContext } from '../context/context'
 class Profile extends Component {
 
- async componentDidMount() {
-  //const response = await PROFILE_SERVICE.PROFILE()
- }
-
  onFinish = async ( values ) => {
- await PROFILE_SERVICE.UPDATE( values );
- this.props.history.push("/")
+ const response = await PROFILE_SERVICE.UPDATE( values )
+ this.props.history.push("/profile")
+ this.context.logUser( response.data.profile );
  }
 
  render() {
   return(
   <MyContext.Consumer>
   {({ loggedUser }) => {
-   console.log(loggedUser)
    return (
-   <>
-   <p>{this.loggedUser}</p>
-   <h1>Mi Perfil</h1>
+   !loggedUser ? <p>Loading...</p> : <>
+   <h1>MI PERFIL</h1>
    <h4>Edita tu cuenta</h4>
 
    <br/>
@@ -30,18 +25,19 @@ class Profile extends Component {
         wrapperCol={{ span: 14 }}
         layout="vertical"
          onFinish={this.onFinish}
-         name= 'product'>
-        <Form.Item initialValues={this.initialValues} label="Nombre:" name="name" rules={[{ required: true, message: 'Por favor inserta tu nombre completo' }]}>
-          <Input placeholder="Nombre completo."/>
+         name= 'product'
+         initialValues={{ name: loggedUser.name, email: loggedUser.email, telephone: loggedUser.telephone, address: loggedUser.address }}>
+        <Form.Item label="Nombre:" name="name" rules={[{ required: true, message: 'Por favor inserta tu nombre completo' }]}>
+          <Input placeholder="Nombre completo." />
         </Form.Item>
-        <Form.Item label="Correo:" name="mail" rules={[{ type: 'email', message: 'La entrada no es un correo electrónico válido' }, { required: true, message: 'Inserta tu correo electrónico' }]}>
-          <Input placeholder="Correo electrónico."/>
+        <Form.Item label="Correo:" name="email" rules={[{ type: 'email', message: 'La entrada no es un correo electrónico válido' }, { required: true, message: 'Inserta tu correo electrónico' }]}>
+          <Input placeholder="Correo electrónico." />
         </Form.Item>
         <Form.Item label="Télefono:" name="telephone">
-          <Input placeholder="Télefono de contacto."/>
+          <Input placeholder="Télefono de contacto." />
         </Form.Item>
-        <Form.Item  label="Domicilio" name='body' rules={[{ required: true, message: 'Inserta el mensaje a enviar' }]}>
-        <Input placeholder="Por favor ingrese la dirección de entrega."/>
+        <Form.Item  label="Domicilio" name='address' rules={[{ required: true, message: 'Inserta la dirección de envío' }]}>
+        <Input placeholder="Por favor ingrese la dirección de entrega." />
       </Form.Item>
       <Form.Item>
         <Button type="primary" htmlType="submit">
@@ -57,6 +53,8 @@ class Profile extends Component {
   )
  }
 }
+
+Profile.contextType = MyContext
 
 export default Profile
 

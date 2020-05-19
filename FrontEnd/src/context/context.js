@@ -6,7 +6,7 @@ export const MyContext = createContext()
  export class ContextProvider extends Component {
  state={
   loggedUser: null,
-  cart: {},
+  cart: [],
  }
 
 async componentDidMount() {

@@ -36,7 +36,7 @@ class Mailbox extends Component {
         <Form.Item initialValues={this.initialValues} label="Nombre:" name="name" rules={[{ required: true, message: 'Por favor inserta tu nombre completo' }]}>
           <Input placeholder="Nombre completo."/>
         </Form.Item>
-        <Form.Item label="Correo:" name="mail" rules={[{ type: 'email', message: 'La entrada no es un correo electrónico válido' }, { required: true, message: 'Inserta tu correo electrónico' }]}>
+        <Form.Item label="Correo:" name="email" rules={[{ type: 'email', message: 'La entrada no es un correo electrónico válido' }, { required: true, message: 'Inserta tu correo electrónico' }]}>
           <Input placeholder="Correo electrónico."/>
         </Form.Item>
         <Form.Item label="Télefono" name="telephone">
