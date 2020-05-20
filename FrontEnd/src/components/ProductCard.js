@@ -9,11 +9,11 @@ function ProductCard({ imgURL, name, price, measurement, onClick}) {
     <Card
     className="productCard"
       hoverable
-      style={{ width: 220}}
+      style={{ width: 231}}
       cover={<img alt={ name } src={ imgURL } />}
       onClick= {() => onClick() }
     >
-      <Meta title={ name } description={`$${price} / ${measurement}` } />
+      <Meta title={ name } description={`$${price.toFixed(2)} / ${measurement}` } />
     </Card>
   )
 }

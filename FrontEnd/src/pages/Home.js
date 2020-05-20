@@ -5,7 +5,7 @@ import PRODUCT_SERVICE from '../services/product';
 import { MyContext } from '../context/context';
 import CarouselHome from '../components/Carousel';
 import ProductCard from '../components/ProductCard';
-import { Col, Row } from 'antd';
+import { Col, Row, notification } from 'antd';
 import ModalDetail from '../components/ProductModal';
 
 class Home extends Component {
@@ -35,6 +35,32 @@ class Home extends Component {
     this.setState({products: stateUpdated})
   }
 
+  addToCart = ( item ) => {
+    const  newCart = [...this.context.cart, item]
+    this.context.setCart(newCart)
+    this.openNotificationWithIcon(item)
+  }
+
+  openNotificationWithIcon = item => {
+    notification.success({
+      message: 'Producto añadido.',
+      description:
+        <p>{item.name}  se agregó a su carrito con éxito!</p>,
+      style: { background: '#fcffe6' },
+      duration: 2,
+    });
+  };
+
+  //onClick={() => openNotificationWithIcon('success')}
+
+  // <Alert
+  //     message="Success Tips"
+  //     description="Detailed description and advice about successful copywriting."
+  //     type="success"
+  //     showIcon
+  //   />
+  //setSearches(searches => [...searches, query])
+
   setModalVisible = (id) => {
     this.setState(prevstate => {
       return {
@@ -62,6 +88,7 @@ class Home extends Component {
                     price={item.price}
                     measurement={item.measurement}
                     _id={item._id}
+                    addToCart={() => this.addToCart(item)}
                     removeProduct={() => this.removeProduct(item._id)}
                     modalVisible={modalVisible[item._id]}
                     handleOk={() => this.setModalVisible(item._id)}

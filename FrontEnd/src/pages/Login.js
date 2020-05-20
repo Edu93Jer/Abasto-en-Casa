@@ -21,7 +21,7 @@ class Login extends Component {
     } else {
       this.setState({ msg: response.message , loading: false })
       this.context.logUser( response.user );
-      this.props.history.push( "/profile" );
+      this.props.history.push( "/" );
     }
   }
 
@@ -42,18 +42,18 @@ class Login extends Component {
           </a>
           </Button>
           <Form.Item name="email" rules={
-            [{ type: 'email', message: 'The input is not valid E-mail!' },
-            { required: true, message: 'Please input your Email!' }]
+            [{ type: 'email', message: 'La entrada no es un correo electrónico válido' },
+            { required: true, message: 'Inserta tu correo electrónico' }]
             }>
-            <Input prefix={ <MailOutlined className="site-form-item-icon" /> } placeholder="Email"/>
+            <Input prefix={ <MailOutlined className="site-form-item-icon" /> } placeholder="Correo Electrónico"/>
           </Form.Item>
           <Form.Item name="password" rules={
-            [{ required: true, message: 'Please input your Password!' }]
+            [{ required: true, message: 'Por favor confirme su contraseña' }]
             }>
-            <Input.Password prefix={<LockOutlined className="site-form-item-icon" />} placeholder="Password"/>
+            <Input.Password prefix={<LockOutlined className="site-form-item-icon" />} placeholder="Contraseña"/>
           </Form.Item>
           <Form.Item name="remember" valuePropName="checked" noStyle>
-            <Checkbox>Remember me</Checkbox>
+            <Checkbox>Recuérdame</Checkbox>
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit" className="login-form-button">

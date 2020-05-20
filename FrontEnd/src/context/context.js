@@ -9,6 +9,8 @@ export const MyContext = createContext()
   cart: [],
  }
 
+ // {producto: 'papas', precio: 10}, {producto: 'cebollas', precio: 12}, {producto: 'papas', precio: 13}
+
 async componentDidMount() {
  const response = await handleAsync(AUTH_SERVICE.CURRENTUSER);
  this.logUser( response.user )
@@ -23,11 +25,16 @@ logout = async () => {
  this.setState({ loggedUser: null })
 }
 
+setCart = ( cart ) => {
+ this.setState({ cart })
+ console.log(this.state.cart)
+}
+
 render() {
- const { loggedUser } = this.state;
- const { logUser, logout } = this;
+ const { loggedUser, cart } = this.state;
+ const { logUser, logout, setCart } = this;
  return (
-  <MyContext.Provider value={{ loggedUser, logUser, logout }}>
+  <MyContext.Provider value={{ loggedUser, logUser, logout, cart, setCart }}>
    { this.props.children }
   </MyContext.Provider>
  )

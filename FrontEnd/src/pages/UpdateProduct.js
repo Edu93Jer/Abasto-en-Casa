@@ -30,7 +30,7 @@ onChange = (info) => {
      const { secure_url } = info.file.response
      const imageURL = secure_url
      this.setState({ imageURL })
-  }
+  }     
 }
  render() {
 

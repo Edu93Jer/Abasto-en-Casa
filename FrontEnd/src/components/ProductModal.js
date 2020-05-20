@@ -11,14 +11,14 @@ function ModalDetail(props) {
    measurement,
    description,
    removeProduct,
+   addToCart,
    modalVisible,
    handleOk,
    handleCancel,
   } = props
   return (
    <Modal
-   title={ name }
-   centered
+   style={{top: 15, display:'flex'}}
    visible={ modalVisible }
    onOk={ handleOk }
    onCancel={ handleCancel}
@@ -31,6 +31,7 @@ function ModalDetail(props) {
     description={ description }
     _id= { _id }
     removeProduct={ removeProduct }
+    addToCart={ addToCart }
     />
    </Modal>
   );

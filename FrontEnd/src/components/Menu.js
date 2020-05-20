@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Badge } from 'antd';
 import { ShoppingTwoTone , UserOutlined, ShopTwoTone, QuestionCircleTwoTone, LogoutOutlined, ApiTwoTone, ShoppingCartOutlined } from '@ant-design/icons';
 import { Link, withRouter } from 'react-router-dom'
 import { MyContext } from '../context/context'
@@ -11,6 +11,9 @@ const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
 
 class NavMenu extends Component {
+  state={
+    counterCart: 0
+  }
 
   logOut = async () => {
       await AUTH_SERVICE.LOGOUT();
@@ -18,9 +21,67 @@ class NavMenu extends Component {
       this.props.history.push("/");
     };
 
+  componentDidUpdate(){
+    const counter= this.context.cart.length
+    if (counter !== this.state.counterCart){
+    this.setState({counterCart : counter})}
+  }
+
+
 render(){
   return(
     <Layout >
+    {/* <Header className="header" style={{ position: 'fixed', zIndex: 100, width: '100%'}}>
+      <Menu theme="dark" mode="horizontal">
+        <Link to='/'>
+          <img
+          src='https://res.cloudinary.com/abasto-en-casa/image/upload/v1589906088/AbastoProducts/Logo_01.png.png'
+          alt='logo'
+          className='LogoMenu'
+          />
+        </Link>
+        <Menu.Item key="1"><Link to='/login'>Iniciar Sesión</Link></Menu.Item>
+        <Menu.Item key="2"><Link to='/signup'>Crear Cuenta</Link></Menu.Item>
+        <Menu.Item key="3">
+          <Link to='/cart'>
+            <Badge count={this.state.counterCart}>
+              <ShoppingCartOutlined twoToneColor="#fa8c16" style={{fontSize: 'x-large'}} className="head-example" />
+            </Badge>Carrito</Link>
+        </Menu.Item>
+      </Menu>
+    </Header> */}
+
+
+
+        <Header className="header" style={{ position: 'fixed', zIndex: 100, width: '100%'}}>
+      <Menu className='MenuHeader' theme="dark" mode="horizontal">
+        <>
+        <Link to='/'>
+          <img
+          src='https://res.cloudinary.com/abasto-en-casa/image/upload/v1589906088/AbastoProducts/Logo_01.png.png'
+          alt='logo'
+          className='LogoMenu'
+          />
+        </Link>
+        </>
+
+        {this.context.loggedUser ?
+        <>
+        <Menu.Item key="8888" style={{alignSelf: "center"}}>Bienvenido</Menu.Item>
+        <Menu.Item key="3" style={{alignSelf: "center"}}><Link to='/cart'><ShoppingCartOutlined twoToneColor="#fa8c16" style={{fontSize: 'x-large'}} />Carrito</Link></Menu.Item>
+        </>
+         :
+        <>
+        <Menu.Item key="1" style={{alignSelf: "center"}}><Link to='/login'>Iniciar Sesión</Link></Menu.Item>
+        <Menu.Item key="2" style={{alignSelf: "center"}}><Link to='/signup'>Crear Cuenta</Link></Menu.Item>
+        <Menu.Item key="3" style={{alignSelf: "center"}}><Link to='/cart'><ShoppingCartOutlined twoToneColor="#fa8c16" style={{fontSize: 'x-large'}} />Carrito</Link></Menu.Item>
+        </>}
+      </Menu>
+    </Header>
+
+
+
+
     <Sider className="Navbar"
       breakpoint="lg"
       collapsedWidth="0"
@@ -28,9 +89,7 @@ render(){
       }}
       onCollapse={(collapsed, type) => {
       }}
-      style={{ position: 'fixed', zIndex: 99, height: '100vh'}}
     >
-      <div className="logo" />
       <Menu className="Navbar" mode="inline">
       {this.context.loggedUser?.rol &&
         <Menu.Item key="1" icon={<UserOutlined style={{fontSize: 'large'}} />}>
@@ -55,31 +114,15 @@ render(){
             <Menu.Item key="8"><Link to="/terms">Términos y Condiciones</Link></Menu.Item>
             <Menu.Item key="9"><Link to="/contact">Contáctanos</Link></Menu.Item>
           </SubMenu>
+      {this.context.loggedUser?.rol &&
         <Menu.Item key="11" icon={<LogoutOutlined style={{fontSize: 'large'}} />}  onClick={this.logOut}>
-          Log Out
-        </Menu.Item>
+          Cerrar Sesión
+        </Menu.Item>}
       </Menu>
     </Sider>
     <Layout>
-    <Header className="header" style={{ position: 'fixed', zIndex: 98, width: '100%'}}>
-      <div className="logo" />
-      <Menu theme="dark" mode="horizontal">
-        <Link to='/'>
-          <img
-          src='https://res.cloudinary.com/abasto-en-casa/image/upload/v1589906088/AbastoProducts/Logo_01.png.png'
-          alt='logo'
-          className='LogoMenu'
-          />
-        </Link>
-
-        <Menu.Item key="1"><Link to='/login'>Iniciar Sesión</Link></Menu.Item>
-        <Menu.Item key="2"><Link to='/signup'>Crear Cuenta</Link></Menu.Item>
-        <Menu.Item key="3"><Link to='/cart'><ShoppingCartOutlined twoToneColor="#fa8c16" style={{fontSize: 'x-large'}} />Carrito</Link></Menu.Item>
-
-      </Menu>
-    </Header>
       <Content  style={{ margin: '24px 16px 0' }}>
-        <div  className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+        <div  className="site-layout-background" style={{ padding: 24, minHeight: '100vh' }}>
           {this.props.children}
         </div>
       </Content>

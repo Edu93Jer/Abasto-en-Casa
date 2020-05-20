@@ -13,12 +13,14 @@ code {
 }
 
 .Navbar {
-  background:#7cb305 !important;
-  color: white ;
+  background: #7cb305 !important;
+  color: white;
+  padding-top: 50px !important;
 }
 
 .ant-layout-sider-zero-width-trigger {
-  background:#7cb305 !important;
+  background: #7cb305 !important;
+  margin-top: 20px;
 }
 
 .anticon {
@@ -47,7 +49,7 @@ code {
 }
 
 .ant-layout-header {
-  background:#7cb305 !important;
+  background: #7cb305 !important;
   padding: 0 20px !important;
   height: 85px !important;
 }
@@ -56,7 +58,7 @@ code {
 esta clase se supone es donde tengo que separara el login y signup de mi logo (header) */
 
 .ant-menu.ant-menu-dark {
-  background:#7cb305 !important;
+  background: #7cb305 !important;
 }
 
 .ant-menu-submenu-selected {
@@ -71,70 +73,98 @@ esta clase se supone es donde tengo que separara el login y signup de mi logo (h
   color: #fa8c16 !important;
 }
 
-.ant-menu-sub{
-  background:#f4ffb8 !important;
+.ant-menu-sub {
+  background: #f4ffb8 !important;
 }
 
 .login-form {
   max-width: 300px !important;
 }
+
 .login-form-forgot {
   float: right !important;
 }
+
 .ant-col-rtl .login-form-forgot {
   float: left !important;
 }
+
 .login-form-button {
   width: 100% !important;
 }
 
-.GgLogin{
+.GgLogin {
   font-size: x-large;
   color: #DB4437 !important;
 }
 
-.FbLogin{
+.FbLogin {
   font-size: x-large !important;
   color: #3b5998 !important;
 }
 
-.GgLoginContainer{
+.GgLoginContainer {
   border-color: #DB4437 !important;
   border-radius: 12px !important;
 }
 
-.FbLoginContainer{
+.FbLoginContainer {
   border-color: #3b5998 !important;
   border-radius: 12px !important;
 }
 
-.ant-carousel .slick-slide {
-  text-align: center;
-  height: 160px;
-  line-height: 160px;
-  background: #364d79;
-  overflow: hidden;
+.site-layout-background {
+  padding-top: 120px !important;
+  /* padding-left: 200px !important;
+  padding-right: 50px !important; */
 }
+
 
 .ant-carousel .slick-slide h3 {
   color: #fff;
 }
 
-.site-card-wrapper{
+.site-card-wrapper {
   padding: 20px !important;
-  display: flex;
 }
 
 .productCard {
   margin: 5px !important;
 }
 
-.ImgUpdate{
+.ImgUpdate {
   width: 150px;
   height: auto;
 }
 
-.LogoMenu{
+.MenuHeader{
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-end !important;
+}
+
+.MenuHeader > *{
+  margin-left: 15px;
+}
+
+.LogoMenu {
   width: 110px;
   height: auto;
+  position: absolute;
+  left: 30px;
 }
+
+.Carousel {
+  display: flex !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  height: 30vh;
+}
+
+.ant-row {
+  justify-content: space-between;
+}
+
+/* display: flex;
+flex-flow: row wrap;
+justify-content: space-between */

@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import PRODUCT_SERVICE from '../services/product'
 import ProductCard from '../components/ProductCard'
-import CarouselHome from '../components/Carousel'
-import { Col, Row } from 'antd';
+import { Col, Row,  notification } from 'antd';
 import ModalDetail from '../components/ProductModal';
+import { MyContext } from '../context/context'
 class Department extends Component {
   state = {
     products: [],
@@ -34,6 +34,22 @@ removeProduct = async (id) => {
   this.setModalVisible(id)
 }
 
+addToCart = ( item ) => {
+  const  newCart = [...this.context.cart, item]
+  this.context.setCart(newCart)
+  this.openNotificationWithIcon(item)
+}
+
+openNotificationWithIcon = item => {
+  notification.success({
+    message: 'Producto añadido.',
+    description:
+      <p>{item.name}  se agregó a su carrito con éxito!</p>,
+    style: { background: '#fcffe6' },
+    duration: 2,
+  });
+};
+
   setModalVisible = id => {
     this.setState(prevstate => {
       return {
@@ -47,9 +63,7 @@ removeProduct = async (id) => {
   const { modalVisible } = this.state;
   return(
    <>
-   {/* <h1>Departamento de:</h1> */}
-   {/* <h1>{this.state.department}</h1> */}
-   <CarouselHome/>
+      {/* <h1>{this.state.products[0].depart}</h1> */}
    <div className="site-card-wrapper">
    <Row gutter={16}>
      {this.state.products.map((item) => (
@@ -63,6 +77,7 @@ removeProduct = async (id) => {
         price={item.price}
         measurement={item.measurement}
         _id={item._id}
+        addToCart={() => this.addToCart(item)}
         removeProduct={() => this.removeProduct(item._id)}
         modalVisible={modalVisible[item._id]}
         handleOk={() => this.setModalVisible(item._id)}
@@ -77,5 +92,7 @@ removeProduct = async (id) => {
   )
  }
 }
+
+Department.contextType = MyContext;
 
 export default Department
