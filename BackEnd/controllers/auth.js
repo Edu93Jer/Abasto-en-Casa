@@ -5,10 +5,10 @@ exports.signupPost = async (req, res) => {
   const { name, email, password } = req.body;
   const user = await User.register({ name, email }, password)
   passport.authenticate('local')(req, res, () => {
-  console.log(req.user)
-  res.status(201).json({ message: "User created and logged", user: req.user });
+    console.log(req.user)
+    res.status(201).json({ message: "User created and logged", user: req.user });
   });
- }
+}
 
 //  exports.loginPost = (passport.authenticate('local', {
 //   passReqToCallback: true
@@ -31,7 +31,7 @@ exports.loginPost = (req, res, next) => {
   })(req, res, next)
 }
 
-exports.loginFacebook = passport.authenticate( 'facebook', { scope: [ 'email' ] });
+exports.loginFacebook = passport.authenticate('facebook', { scope: ['email'] });
 
 exports.loginFacebookCb = (req, res, next) => {
   passport.authenticate('facebook', { scope: ['email'] }, (err, user, info) => {
@@ -39,7 +39,7 @@ exports.loginFacebookCb = (req, res, next) => {
     if (!user) return res.status(401).json({ err, info })
     req.login(user, error => {
       if (error) return res.status(401).json({ error })
-      return res.redirect('http://localhost:3001/?status=success')
+      return res.redirect('https://abasto-en-casa-mh3wvky3b.now.sh/?status=success')
     })
   })(req, res, next)
 }
@@ -50,13 +50,13 @@ exports.loginGoogle = passport.authenticate('google', {
 
 exports.loginGoogleCb = (req, res, next) => {
   passport.authenticate('google', { scope: ['profile', 'email'] }, (err, user, info) => {
-      if (err) return res.status(500).json({ err, info })
-      if (!user) return res.status(401).json({ err, info })
-      req.login(user, error => {
-        if (error) return res.status(401).json({ error })
-        return res.redirect('http://localhost:3001/?status=success')
-      })
-    }
+    if (err) return res.status(500).json({ err, info })
+    if (!user) return res.status(401).json({ err, info })
+    req.login(user, error => {
+      if (error) return res.status(401).json({ error })
+      return res.redirect('https://abasto-en-casa-mh3wvky3b.now.sh/?status=success')
+    })
+  }
   )(req, res, next)
 }
 
