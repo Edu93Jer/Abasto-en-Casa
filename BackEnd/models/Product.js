@@ -5,7 +5,7 @@ const productSchema = new Schema({
  department: { type: String },
  imgURL: { type: String },
  price:  {type: Number},
- quantity: { type: Number, default: 0 },
+ quantity: { type: Number, default: 1 },
  measurement: { type: String, enum: [ 'Kilo', 'Gramos', 'Litro', 'Mililitros', 'Pieza' ]},
  description: { type: String, max: 100 }
 },

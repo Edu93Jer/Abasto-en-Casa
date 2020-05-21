@@ -1,11 +1,11 @@
 const { Schema, model } = require('mongoose');
 
 const orderSchema = new Schema({
-  products: [{ type: Schema.Types.ObjectId, ref: 'Product' }],
+  products:  Array,
+  total: {type: Number},
   paid: { type: Boolean, default: false },
-  date: { type: String },
   user: { type: Schema.Types.ObjectId, ref: 'User' },
-  shippingAddress: { type: Schema.Types.ObjectId, ref: 'User' },
+  shippingAddress: { type: String },
 },
 { timestamps: true }
 );

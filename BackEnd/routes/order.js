@@ -3,7 +3,7 @@ const router = require('express').Router();
 const{ isLogged } = require( '../middlewares/middlewares')
 
 const {
- createOrder, allOrders, detailOrder, updateOrder, deleOrder
+ createOrder, allOrders, allOrdersUser, detailOrder, updateOrder, deleOrder
 } = require('../controllers/order')
 
 // Order CRUD Routes
@@ -15,6 +15,7 @@ router.post('/order/create', createOrder)
 //Read
 
 router.get('/order/all', allOrders)
+router.get('/order/all/myorders', allOrdersUser)
 router.get('/order/:id', detailOrder)
 
 //Update

@@ -67,15 +67,22 @@ render(){
 
         {this.context.loggedUser ?
         <>
-        <Menu.Item key="8888" style={{alignSelf: "center"}}>Bienvenido</Menu.Item>
-        <Menu.Item key="3" style={{alignSelf: "center"}}><Link to='/cart'><ShoppingCartOutlined twoToneColor="#fa8c16" style={{fontSize: 'x-large'}} />Carrito</Link></Menu.Item>
+        <Menu.Item key="8888" style={{alignSelf: "center"}}><>Bienvenido {this.context.loggedUser.name}</></Menu.Item>
+        {/* <Menu.Item key="3" style={{alignSelf: "center"}}><Link to='/cart'><ShoppingCartOutlined twoToneColor="#fa8c16" style={{fontSize: 'x-large'}} />Carrito</Link></Menu.Item> */}
         </>
          :
         <>
         <Menu.Item key="1" style={{alignSelf: "center"}}><Link to='/login'>Iniciar Sesión</Link></Menu.Item>
         <Menu.Item key="2" style={{alignSelf: "center"}}><Link to='/signup'>Crear Cuenta</Link></Menu.Item>
-        <Menu.Item key="3" style={{alignSelf: "center"}}><Link to='/cart'><ShoppingCartOutlined twoToneColor="#fa8c16" style={{fontSize: 'x-large'}} />Carrito</Link></Menu.Item>
         </>}
+
+        <Menu.Item key="3">
+          <Link to='/cart'>
+            <Badge count={this.state.counterCart}>
+              <ShoppingCartOutlined twoToneColor="#fa8c16" style={{fontSize: 'x-large'}} className="head-example" />
+            </Badge>Carrito</Link>
+        </Menu.Item>
+        
       </Menu>
     </Header>
 

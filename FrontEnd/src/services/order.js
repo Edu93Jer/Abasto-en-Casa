@@ -14,6 +14,10 @@ const ORDER_SERVICE = {
   return await service.get( '/order/all' )
  },
 
+ ALL_USER: async ( ) => {
+  return await service.get( '/order/all/myorders' )
+ },
+
  DETAIL: async ( id ) => {
   return await service.get( `/order/${id}` )
  },

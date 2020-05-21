@@ -165,6 +165,11 @@ esta clase se supone es donde tengo que separara el login y signup de mi logo (h
   justify-content: space-between;
 }
 
+.BuyButton{
+  background-color:#7cb305 !important;
+  border-color: #7cb305 !important;
+}
+
 /* display: flex;
 flex-flow: row wrap;
 justify-content: space-between */
