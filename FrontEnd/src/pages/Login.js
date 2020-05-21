@@ -13,15 +13,15 @@ class Login extends Component {
     loading: false,
   }
 
-  onFinish = async ( values ) => {
+  onFinish = async (values) => {
     this.setState({ loading: true })
-    const response = await handleAsync(() => AUTH_SERVICE.LOGIN( values ));
+    const response = await handleAsync(() => AUTH_SERVICE.LOGIN(values));
     if (response.err) {
       this.setState({ msg: response.err.message, loading: false })
     } else {
-      this.setState({ msg: response.message , loading: false })
-      this.context.logUser( response.user );
-      this.props.history.push( "/" );
+      this.setState({ msg: response.message, loading: false })
+      this.context.logUser(response.user);
+      this.props.history.push("/");
     }
   }
 
@@ -30,27 +30,27 @@ class Login extends Component {
       <>
         {!this.state.loading && <p>{this.state.msg}</p>}
         {this.state.loading && <p>Loading...</p>}
-        <Form name="login" className="login-form" initialValues={{ remember: true }} onFinish={ this.onFinish }>
-          <Button   className="login-form-button FbLoginContainer">
-          <a href='http://localhost:3000/auth/facebook'>
-          <FacebookFilled className='FbLogin'/> Continuar con Facebook.
+        <Form name="login" className="login-form" initialValues={{ remember: true }} onFinish={this.onFinish}>
+          <Button className="login-form-button FbLoginContainer">
+            <a href='https://pacific-stream-12212.herokuapp.com/auth/facebook'>
+              <FacebookFilled className='FbLogin' /> Continuar con Facebook.
           </a>
           </Button>
-          <Button   className="login-form-button GgLoginContainer">
-          <a href='http://localhost:3000/auth/google'>
-          <GoogleCircleFilled className='GgLogin'/> Continuar con Google.
+          <Button className="login-form-button GgLoginContainer">
+            <a href='https://pacific-stream-12212.herokuapp.com/auth/google'>
+              <GoogleCircleFilled className='GgLogin' /> Continuar con Google.
           </a>
           </Button>
           <Form.Item name="email" rules={
             [{ type: 'email', message: 'La entrada no es un correo electrónico válido' },
             { required: true, message: 'Inserta tu correo electrónico' }]
-            }>
-            <Input prefix={ <MailOutlined className="site-form-item-icon" /> } placeholder="Correo Electrónico"/>
+          }>
+            <Input prefix={<MailOutlined className="site-form-item-icon" />} placeholder="Correo Electrónico" />
           </Form.Item>
           <Form.Item name="password" rules={
             [{ required: true, message: 'Por favor confirme su contraseña' }]
-            }>
-            <Input.Password prefix={<LockOutlined className="site-form-item-icon" />} placeholder="Contraseña"/>
+          }>
+            <Input.Password prefix={<LockOutlined className="site-form-item-icon" />} placeholder="Contraseña" />
           </Form.Item>
           <Form.Item name="remember" valuePropName="checked" noStyle>
             <Checkbox>Recuérdame</Checkbox>

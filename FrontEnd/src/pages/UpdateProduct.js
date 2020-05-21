@@ -48,7 +48,7 @@ class UpdateProduct extends Component {
 
     const props = {
       name: 'imageURL',
-      action: 'http://localhost:3000/upload',
+      action: 'https://pacific-stream-12212.herokuapp.com/upload',
       listType: 'picture',
       accept: ".jpg, .jpeg, .png",
     }

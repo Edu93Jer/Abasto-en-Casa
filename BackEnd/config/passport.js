@@ -11,7 +11,7 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_APP_ID,
       clientSecret: process.env.FACEBOOK_APP_SECRET,
-      callbackURL: 'http://localhost:3000/auth/facebook/callback',
+      callbackURL: 'https://pacific-stream-12212.herokuapp.com/auth/facebook/callback',
       profileFields: ['id', 'email', 'gender', 'link', 'name', 'photos'],
     },
     async (accessToken, refreshToken, profile, cb) => {
@@ -38,7 +38,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: 'http://localhost:3000/auth/google/callback',
+      callbackURL: 'https://pacific-stream-12212.herokuapp.com/auth/google/callback',
       profileFields: ['id', 'email', 'gender', 'link', 'name', 'photos'],
     },
     async (accessToken, refreshToken, profile, done) => {
@@ -60,10 +60,10 @@ passport.use(
 // Local Strategy
 passport.use(User.createStrategy());
 
-passport.serializeUser(( user, done ) => { done ( null, user.id )});
+passport.serializeUser((user, done) => { done(null, user.id) });
 
-passport.deserializeUser(( id, done ) => {
-  User.findById( id, ( err, user ) => { done( err, user )});
+passport.deserializeUser((id, done) => {
+  User.findById(id, (err, user) => { done(err, user) });
 });
 
 module.exports = passport;
