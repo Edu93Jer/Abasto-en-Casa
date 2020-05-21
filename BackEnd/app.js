@@ -53,7 +53,7 @@ app.use(flash())
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:3001", "https://abasto-en-casa-mh3wvky3b.now.sh"],
+    origin: ["http://localhost:3001", "https://abasto-en-casa.now.sh"],
   })
 );
 

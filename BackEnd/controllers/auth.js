@@ -39,7 +39,7 @@ exports.loginFacebookCb = (req, res, next) => {
     if (!user) return res.status(401).json({ err, info })
     req.login(user, error => {
       if (error) return res.status(401).json({ error })
-      return res.redirect('https://abasto-en-casa-mh3wvky3b.now.sh/?status=success')
+      return res.redirect('https://abasto-en-casa.now.sh/?status=success')
     })
   })(req, res, next)
 }
@@ -54,7 +54,7 @@ exports.loginGoogleCb = (req, res, next) => {
     if (!user) return res.status(401).json({ err, info })
     req.login(user, error => {
       if (error) return res.status(401).json({ error })
-      return res.redirect('https://abasto-en-casa-mh3wvky3b.now.sh/?status=success')
+      return res.redirect('https://abasto-en-casa.now.sh/?status=success')
     })
   }
   )(req, res, next)
