@@ -19,7 +19,7 @@ class Home extends Component {
       const response = await handleAsync(AUTH_SERVICE.CURRENTUSER);
       this.context.logUser(response.user);
     }
-    const { data: { products }} = await PRODUCT_SERVICE.ALL();
+    const { data: { products } } = await PRODUCT_SERVICE.ALL();
     const modalVisible = {};
     for (let i = 0; i < products.length; i++) {
       modalVisible[products[i]["_id"]] = false;
@@ -27,18 +27,33 @@ class Home extends Component {
     this.setState({ products, modalVisible });
   }
 
-  removeProduct = async ( id ) => {
-    await PRODUCT_SERVICE.DELETE(id)
+  removeProduct = async (id) => {
+    const productDeleted = await PRODUCT_SERVICE.DELETE(id)
     this.setModalVisible(id)
     const { products } = this.state
     const stateUpdated = products.filter((product) => product._id !== id)
-    this.setState({products: stateUpdated})
+    this.setState({ products: stateUpdated })
+    this.openNotificationDelete(productDeleted)
   }
 
-  addToCart = ( item ) => {
-    const  newCart = [...this.context.cart, item]
-    this.context.setCart(newCart)
-    this.openNotificationWithIcon(item)
+  openNotificationDelete = item => {
+    notification.success({
+      message: 'Producto eliminado.',
+      description:
+        <p>{item.data.product.name} se eliminó de la lista de productos de Abasto en Casa</p>,
+      style: { background: '#fcffe6' },
+      duration: 2,
+    });
+  };
+
+  addToCart = (item) => {
+    if (this.context.loggedUser) {
+      const newCart = [...this.context.cart, item]
+      this.context.setCart(newCart)
+      this.openNotificationWithIcon(item)
+    } else {
+      this.props.history.push('/login')
+    }
   }
 
   openNotificationWithIcon = item => {
@@ -50,16 +65,6 @@ class Home extends Component {
       duration: 2,
     });
   };
-
-  //onClick={() => openNotificationWithIcon('success')}
-
-  // <Alert
-  //     message="Success Tips"
-  //     description="Detailed description and advice about successful copywriting."
-  //     type="success"
-  //     showIcon
-  //   />
-  //setSearches(searches => [...searches, query])
 
   setModalVisible = (id) => {
     this.setState(prevstate => {

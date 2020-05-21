@@ -16,6 +16,7 @@ import Department from './pages/DepartmentView'
 import FAQ from './pages/FAQ';
 import Mailbox from './pages/Contact';
 import UpdateProduct from './pages/UpdateProduct'
+import OrderDetail from './pages/OrderDetail';
 
 const AppRouter = () => (
   <Router>
@@ -32,7 +33,8 @@ const AppRouter = () => (
         <Route exact component={Terms} path="/terms" />
         <Route exact component={FAQ} path="/faq" />
         <Route exact component={Mailbox} path="/contact" />
-        <Route component={UpdateProduct} path="/product/edit/:id"/>
+        <Route component={UpdateProduct} path="/product/edit/:id" />
+        <Route component={OrderDetail} path="/order/detail/:id" />
       </Switch>
     </NavMenu>
   </Router>

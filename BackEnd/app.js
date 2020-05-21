@@ -1,18 +1,18 @@
 require('dotenv').config();
 
-const bodyParser   = require('body-parser');
+const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const express      = require('express');
-const mongoose     = require('mongoose');
-const logger       = require('morgan');
-const path         = require('path');
-const passport     = require('./config/passport');
-const session      = require('express-session');
-const flash        = require('connect-flash');
-const cors         = require('cors')
+const express = require('express');
+const mongoose = require('mongoose');
+const logger = require('morgan');
+const path = require('path');
+const passport = require('./config/passport');
+const session = require('express-session');
+const flash = require('connect-flash');
+const cors = require('cors')
 
 mongoose
-  .connect('mongodb://localhost/abasto-en-casa', {
+  .connect(process.env.DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -53,7 +53,7 @@ app.use(flash())
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:3001"],
+    origin: ["http://localhost:3001", "https://abasto-en-casa-mh3wvky3b.now.sh"],
   })
 );
 

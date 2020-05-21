@@ -3,6 +3,7 @@ import ORDER_SERVICE from '../services/order';
 import { Table } from 'antd';
 import { CheckCircleTwoTone, CloseCircleTwoTone } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
+import Moment from 'react-moment'
 
 class Orders extends Component {
   state = {
@@ -25,9 +26,9 @@ class Orders extends Component {
         dataIndex: 'createdAt',
         key: 'createdAt',
         render: createdAt => (
-          <>
-            {createdAt.getDate()} / {createdAt.getMonth() + 1} / {createdAt.getFullYear()}{' '}
-          </>
+          <Moment format='DD/MM/YYYY'>
+            {createdAt}
+          </Moment>
         ),
       },
       {
@@ -51,8 +52,8 @@ class Orders extends Component {
             {paid ? (
               <CheckCircleTwoTone twoToneColor="#fa8c16" style={{ fontSize: 'x-large' }} />
             ) : (
-              <CloseCircleTwoTone twoToneColor="#fa8c16" style={{ fontSize: 'x-large' }} />
-            )}
+                <CloseCircleTwoTone twoToneColor="#fa8c16" style={{ fontSize: 'x-large' }} />
+              )}
           </>
         ),
       },
@@ -60,7 +61,8 @@ class Orders extends Component {
   };
 
   componentDidMount = async () => {
-    const orders = await ORDER_SERVICE.ALL_USER();
+    const response = await ORDER_SERVICE.ALL_USER();
+    const { orders } = response.data
     this.setState({ orders });
   };
 
