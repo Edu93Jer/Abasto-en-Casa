@@ -19,7 +19,7 @@ class UpdateProduct extends Component {
 
   onFinish = async (values) => {
     const { id } = this.props.match.params
-    const { imageURL } = this.state
+    const { imageURL } = this.state ? this.state : { imageURL } = this.state.product
     values.imgURL = imageURL
     const newProduct = await PRODUCT_SERVICE.UPDATE(id, values);
     this.openNotificationWithIcon(newProduct)
