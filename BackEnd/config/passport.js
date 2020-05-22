@@ -5,7 +5,6 @@ const FacebookStrategy = require('passport-facebook');
 const User = require('../models/User');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
-// Facebook Strategy
 passport.use(
   new FacebookStrategy(
     {
@@ -31,8 +30,6 @@ passport.use(
   )
 );
 
-//Google Strategy
-
 passport.use(
   new GoogleStrategy(
     {
@@ -57,7 +54,6 @@ passport.use(
   )
 );
 
-// Local Strategy
 passport.use(User.createStrategy());
 
 passport.serializeUser((user, done) => { done(null, user.id) });

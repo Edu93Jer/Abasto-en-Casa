@@ -28,7 +28,6 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
-// Session config
 app.use(
   session({
     secret: process.env.SECRET,
@@ -40,11 +39,9 @@ app.use(
   })
 );
 
-// Passport Setup
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

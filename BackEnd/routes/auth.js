@@ -1,18 +1,15 @@
 const router = require('express').Router();
 const passport = require('passport');
 
-//Import Middlewares
-const{
+const {
   catchErrors, isLogged
-} = require( '../middlewares/middlewares')
+} = require('../middlewares/middlewares')
 
-// Import Controllers
 const {
   signupPost, loginPost, logout, loginFacebook, loginFacebookCb, loginGoogle, loginGoogleCb, currentUser
 } = require('../controllers/auth');
 
-//Auth Routes
-router.post('/signup', catchErrors( signupPost ));
+router.post('/signup', catchErrors(signupPost));
 router.post('/login', loginPost);
 router.get('/auth/facebook', loginFacebook);
 router.get('/auth/facebook/callback', loginFacebookCb);

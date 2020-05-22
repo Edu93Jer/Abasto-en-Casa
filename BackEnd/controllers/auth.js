@@ -5,20 +5,9 @@ exports.signupPost = async (req, res) => {
   const { name, email, password } = req.body;
   const user = await User.register({ name, email }, password)
   passport.authenticate('local')(req, res, () => {
-    console.log(req.user)
     res.status(201).json({ message: "User created and logged", user: req.user });
   });
 }
-
-//  exports.loginPost = (passport.authenticate('local', {
-//   passReqToCallback: true
-//   failureFlash: true ,
-// }),
-// (req, res) => {
-//   const { _id, email } = req.user;
-//     res.status(200).json({ user: { _id, email } });;
-// }
-// );
 
 exports.loginPost = (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
