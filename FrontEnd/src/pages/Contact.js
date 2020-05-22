@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import PROFILE_SERVICE from '../services/user'
 import { Form, Input, Button, notification } from 'antd'
+import { EnvironmentTwoTone, MailTwoTone, PhoneTwoTone } from '@ant-design/icons';
 class Mailbox extends Component {
-  state = {
-    loading: false,
-  }
-
 
   onFinish = async (values) => {
     await PROFILE_SERVICE.CREATEMESSAGE(values);
@@ -28,8 +25,7 @@ class Mailbox extends Component {
   render() {
     return (
       <>
-        {/* {this.state.loading && <p>Aqui va el spiner</p>} */}
-        <h1>CUÉNTANOS ALGO</h1>
+        <h1>CUÉNTANOS ALGO!</h1>
         <h4>Si tienes cualquier pregunta o comentario, por favor usa el formulario a continuación.</h4>
         <br />
         <div>
@@ -37,7 +33,8 @@ class Mailbox extends Component {
             wrapperCol={{ span: 14 }}
             layout="horizontal"
             onFinish={this.onFinish}
-            name='product'>
+            name='product'
+            style={{ display: 'flex', flexDirection: 'column' }}>
             <Form.Item initialValues={this.initialValues} label="Nombre:" name="name" rules={[{ required: true, message: 'Por favor inserta tu nombre completo' }]}>
               <Input placeholder="Nombre completo." />
             </Form.Item>
@@ -50,13 +47,22 @@ class Mailbox extends Component {
             <Form.Item label="Mensaje" name='body' rules={[{ required: true, message: 'Inserta el mensaje a enviar' }]}>
               <Input.TextArea placeholder="Por favor escribanos su mensaje." />
             </Form.Item>
-            <Form.Item>
+            <Form.Item style={{ alignSelf: 'center' }}>
               <Button type="primary" htmlType="submit">
                 Enviar mensaje
-        </Button>
+              </Button>
             </Form.Item>
           </Form>
         </div>
+        <br />
+        <br />
+        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+          <div><EnvironmentTwoTone twoToneColor="#fa8c16" style={{ fontSize: 'x-large' }} /> Central De Abasto, Iztapalapa, CDMX</div>
+
+          <div><MailTwoTone twoToneColor="#fa8c16" style={{ fontSize: 'x-large' }} /> contacto@abasto-en-casa.com</div>
+
+          <div><PhoneTwoTone twoToneColor="#fa8c16" style={{ fontSize: 'x-large' }} /> (55) 6677 8899  - (55) 1122 3344</div>
+        </div >
       </>
     )
   }

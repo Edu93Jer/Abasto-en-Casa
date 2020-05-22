@@ -11,7 +11,7 @@ class FAQ extends Component {
           <Panel header="¿Cuál es el horario de atención?" key="1">
             <p>
               Estamos listos para ayudarte de lunes a viernes de 9 a 18hrs en el correo
-              contacto@clickabasto.com, nuestro call center ( (55) 5351 6777), o puedes escribir por
+              contacto@abasto-en-casa.com, nuestro call center ( (55) 5351 6777), o puedes escribir por
               whatsapp mediante la página web.
             </p>
           </Panel>
@@ -32,7 +32,7 @@ class FAQ extends Component {
             <p>
               Te mandaremos un correo cuando el proveedor de entrega haga la recolección y tu pedido
               salga del almacén a tu casa. Si tienes dudas respecto al estatus de tu pedido,
-              escríbenos a contacto@clickabasto.com con la información de tu pedido.
+              escríbenos a contacto@abasto-en-casa.com con la información de tu pedido.
             </p>
           </Panel>
           <Panel header="Horarios de entrega" key="5">
@@ -45,13 +45,13 @@ class FAQ extends Component {
           <Panel header="Entregas internacionales" key="6">
             <p>
               Por el momento no contamos con servicio de entrega internacional en la plataforma,
-              pero puedes escribirnos a contacto@clickabasto.com para cotizar un envío.
+              pero puedes escribirnos a contacto@abasto-en-casa.com para cotizar un envío.
             </p>
           </Panel>
           <Panel header="No recibí mi pedido ¿Qué puedo hacer?" key="7">
             <p>
               En caso de que haya pasado el tiempo de entrega seleccionado para tu compra y aún no
-              cuentes con tu producto, por favor manda un correo a contacto@clickabasto.com o
+              cuentes con tu producto, por favor manda un correo a contacto@abasto-en-casa.com o
               comunícate a nuestro Call Center con la información de tu pedido.
             </p>
           </Panel>
@@ -59,7 +59,7 @@ class FAQ extends Component {
             <p>
               Si el producto que recibiste no es el mismo que solicitaste o viene dañado, no te
               preocupes, podemos hacer el cambio físico de producto o devolución de tu dinero
-              llevando el siguiente proceso: Escríbenos un correo a contacto@clickabasto.com o
+              llevando el siguiente proceso: Escríbenos un correo a contacto@abasto-en-casa.com o
               comunícate al Call Center con la información de tu pedido explicando la situación
               específica del motivo de tu devolución. Nos pondremos en contacto contigo para
               coordinar la recolección del producto. Recibiremos el producto y evaluaremos la

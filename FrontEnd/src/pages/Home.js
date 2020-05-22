@@ -48,6 +48,17 @@ class Home extends Component {
 
   addToCart = (item) => {
     if (this.context.loggedUser) {
+      // this.context.cart.map((ele) => {
+      //   if (ele.name === item.name) {
+      //     return
+      //     ele.quantity = 2
+      //     this.openNotificationWithIcon(item)
+      //   } else {
+      //     const newCart = [...this.context.cart, item]
+      //     this.context.setCart(newCart)
+      //     this.openNotificationWithIcon(item)
+      //   }
+      // })
       const newCart = [...this.context.cart, item]
       this.context.setCart(newCart)
       this.openNotificationWithIcon(item)

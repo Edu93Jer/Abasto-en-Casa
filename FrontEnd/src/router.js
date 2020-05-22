@@ -25,7 +25,7 @@ const AppRouter = () => (
         <Route exact component={Home} path="/" />
         <Route exact component={Signup} path="/signup" />
         <Route exact component={Login} path="/login" />
-        <Route exact component={Profile} path="/profile" />
+        <PrivateRoute exact component={Profile} path="/profile" />
         <PrivateRoute exact component={Cart} path="/cart" />
         <PrivateRoute exact component={Orders} path="/orders" />
         <AdminRoute exact component={CreateProduct} path="/product/create" />
@@ -33,8 +33,8 @@ const AppRouter = () => (
         <Route exact component={Terms} path="/terms" />
         <Route exact component={FAQ} path="/faq" />
         <Route exact component={Mailbox} path="/contact" />
-        <Route component={UpdateProduct} path="/product/edit/:id" />
-        <Route component={OrderDetail} path="/order/detail/:id" />
+        <AdminRoute component={UpdateProduct} path="/product/edit/:id" />
+        <PrivateRoute component={OrderDetail} path="/order/detail/:id" />
       </Switch>
     </NavMenu>
   </Router>

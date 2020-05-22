@@ -25,11 +25,11 @@ class Cart extends Component {
         key: 'quantity',
         render: (quantity, record) => {
           return (
-            <>
-              <PlusSquareTwoTone twoToneColor="#fa8c16" style={{ fontSize: 'x-large' }} onClick={() => this.changeQuantity(1, record)} />
-              {quantity}
-              <MinusSquareTwoTone twoToneColor="#fa8c16" style={{ fontSize: 'x-large' }} onClick={() => this.changeQuantity(-1, record)} />
-            </>
+            <div style={{ display: 'flex' }}>
+              <MinusSquareTwoTone twoToneColor="#fa8c16" style={{ fontSize: 'x-large' }} onClick={() => this.changeQuantity(-.5, record)} />
+              <div style={{ color: '#fa8c16', height: '23px', width: 'auto', border: '#fa8c16', borderStyle: 'solid', backgroundColor: '#FFF7E6', fontSize: '12.5px', fontWeight: 500 }}>{quantity.toFixed(1)}</div>
+              <PlusSquareTwoTone twoToneColor="#fa8c16" style={{ fontSize: 'x-large' }} onClick={() => this.changeQuantity(.5, record)} />
+            </div>
           )
         }
       },
@@ -64,7 +64,13 @@ class Cart extends Component {
 
   changeQuantity = (quantity, product) => {
     const prevQuantity = product.quantity
-    const newObject = { ...product, quantity: prevQuantity + quantity }
+    let suma = 0
+    if ((prevQuantity + quantity) <= 0) {
+      return suma = 1
+    } else {
+      suma = (prevQuantity + quantity)
+    }
+    const newObject = { ...product, quantity: suma }
     const { order } = this.state
     const orderUpdated = order.map((ele) => {
       if (ele._id === product._id) {
@@ -93,7 +99,6 @@ class Cart extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <>
         <h1>Carrito de Compra</h1>

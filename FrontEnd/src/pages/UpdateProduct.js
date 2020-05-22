@@ -19,8 +19,9 @@ class UpdateProduct extends Component {
 
   onFinish = async (values) => {
     const { id } = this.props.match.params
-    const { imageURL } = this.state ? this.state : { imageURL } = this.state.product
-    values.imgURL = imageURL
+    //const { imageURL } = this.state ? this.state : { imageURL } = this.state.product
+    let img = this.state.imageURL ? this.state.imageURL : img = this.state.product.imageURL //esta linea deberia de mantenerme la imagen al actualizar, pero no la mantiene
+    values.imgURL = img
     const newProduct = await PRODUCT_SERVICE.UPDATE(id, values);
     this.openNotificationWithIcon(newProduct)
     this.props.history.push("/")

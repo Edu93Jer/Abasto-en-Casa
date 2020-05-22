@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 
 class Terms extends Component {
- render() {
-  return(
-  <>
-  <h1>Terminos y Condiciones</h1>
-  <p>Usted como usuario del sitio https://abastoencasa.com (en lo sucesivo el “Sitio”) deberá leer detenidamente los presentes términos y condiciones generales que describen y regulan el uso de los productos y servicios ofrecidos (en lo sucesivo los “Términos”) por CLICK ABASTO, (en lo sucesivo “CLICK ABASTO”) dentro del Sitio del cual es propietaria y responsable.
+  render() {
+    return (
+      <>
+        <h1>Terminos y Condiciones</h1>
+        <p>Usted como usuario del sitio https://abasto-en-casa.now.sh/ (en lo sucesivo el “Sitio”) deberá leer detenidamente los presentes términos y condiciones generales que describen y regulan el uso de los productos y servicios ofrecidos (en lo sucesivo los “Términos”) por ABASTO EN CASA, (en lo sucesivo “ABASTO EN CASA”) dentro del Sitio del cual es propietaria y responsable.
 
-El acceso y/o uso del Sitio le atribuye la condición de Usuario, por lo que desde dicho acceso y/o uso: (i) admite su conformidad con los presentes Términos, así como con la Política de Devoluciones, Términos y condiciones particulares de CLICK ABASTO y el Aviso de Privacidad (en lo sucesivo las “Políticas Complementarias”) y (ii) reconoce su carácter obligatorio y vinculante.
+        El acceso y/o uso del Sitio le atribuye la condición de Usuario, por lo que desde dicho acceso y/o uso: (i) admite su conformidad con los presentes Términos, así como con la Política de Devoluciones, Términos y condiciones particulares de ABASTO EN CASA y el Aviso de Privacidad (en lo sucesivo las “Políticas Complementarias”) y (ii) reconoce su carácter obligatorio y vinculante.
 
-Cualquier persona que no acepte los presentes Términos y las Políticas Complementarias, deberá abstenerse de utilizar el Sitio y adquirir los productos y/o servicios que ABASTO EN CASA ofrece.
+        Cualquier persona que no acepte los presentes Términos y las Políticas Complementarias, deberá abstenerse de utilizar el Sitio y adquirir los productos y/o servicios que ABASTO EN CASA ofrece.
 
 <h1>1. CAPACIDAD</h1>
 
@@ -21,7 +21,7 @@ Previa adquisición de los productos y/o servicios que ABASTO EN CASA ofrece a t
 
 ABASTO EN CASA cumple con los principios de licitud, consentimiento, información, calidad, finalidad, lealtad, proporcionalidad y responsabilidad que conforme a la Ley Federal para la Protección de los Datos Personales en Posesión de Particulares, son necesarios para la protección y tratamiento de los Datos Personales.
 
-Para mayor información sobre los Datos Personales recabados por el Sitio, su finalidad y revocación de la autorización para el Tratamiento de los mismos, haga clic aquí: https://clickabasto.com/pages/aviso-de-privacidad
+Para mayor información sobre los Datos Personales recabados por el Sitio, su finalidad y revocación de la autorización para el Tratamiento de los mismos, haga clic aquí: https://abastoencasa.com/pages/aviso-de-privacidad
 
 <h1>3. USO DEL SITIO</h1>
 
@@ -33,9 +33,9 @@ Si se verificara o sospechará un uso fraudulento y/o malintencionado y/o contra
 
 <h1>4. PROMOCIONES O CAMPAÑAS</h1>
 
-<h4>4.1 Códigos promocionales.</h4>
+          <h4>4.1 Códigos promocionales.</h4>
 
-ABASTO EN CASA a través del Sitio y/o a través de sus redes sociales oficiales en Instagram [http://instagram.com/click_abasto], Facebook [http://www.facebook.com/clickabasto] y/o a través de correo electrónico enviado por la dirección contacto@clickabasto.com y/o a través de las publicaciones que sus colaboradores, socios comerciales, patrocinadores y/o influencers realicen con links o hashtags que redireccionen al Sitio y/o a las referidas redes sociales oficiales, podrá ofrecer códigos promocionales y/o cupones de descuento que permitan al Usuario que, bajo los términos y condiciones que al efecto se le informen con antelación a la realización de la compra, sea acreedor a un descuento en la compra de productos en el Sitio.
+ABASTO EN CASA a través del Sitio y/o a través de sus redes sociales oficiales en Instagram [http://instagram.com/abasto_en_casa], Facebook [http://www.facebook.com/abastoencasa] y/o a través de correo electrónico enviado por la dirección contacto@abastoencasa.com y/o a través de las publicaciones que sus colaboradores, socios comerciales, patrocinadores y/o influencers realicen con links o hashtags que redireccionen al Sitio y/o a las referidas redes sociales oficiales, podrá ofrecer códigos promocionales y/o cupones de descuento que permitan al Usuario que, bajo los términos y condiciones que al efecto se le informen con antelación a la realización de la compra, sea acreedor a un descuento en la compra de productos en el Sitio.
 
 Cualquier código promocional y/o cupón de descuento estará limitado a la adquisición de máximo diez (10) productos en el Sitio.
 
@@ -79,7 +79,7 @@ El Usuario al proporcionar cualquier contenido (fotos, imágenes, etc.) a travé
 
 <h1>9. RESPONSABILIDAD</h1>
 
-<h4>9.1 Fallas en la operatividad del Sitio</h4>
+          <h4>9.1 Fallas en la operatividad del Sitio</h4>
 
 ABASTO EN CASA declara que ha adoptado las medidas necesarias que dentro de sus posibilidades y el estado de la tecnología, permitan el correcto funcionamiento del Sitio Web. Sin embargo, ABASTO EN CASA no se hace responsable de manera enunciativa más no limitativa de: (i) cualquier daño, pérdida o perjuicio causado al Usuario por fallas en el sistema, servidor o en Internet, (ii) cualquier virus que pudiera infectar el equipo del Usuario como consecuencia del acceso y/o uso del Sitio, (iii) la continuidad y disponibilidad del Contenido; (iv) la ausencia de errores en el Contenido ni la corrección de cualquier defecto que pudiera ocurrir; (v) los daños o perjuicios que cause cualquier persona que vulnere los sistemas de seguridad del Sitio.
 
@@ -109,7 +109,7 @@ ABASTO EN CASA se reserva el derecho de modificar en cualquier momento los prese
 
 El domicilio ABASTO EN CASA es el ubicado en Legumbres, Central de Abasto, Iztapalapa, Ciudad de México, Mexico, 09040.
 
-Si tiene alguna duda sobre los presentes Términos, así como las Políticas Complementarias que rigen el Sitio, puede ponerse en contacto con ABASTO EN CASA a través del correo contacto@clickabasto.com.
+Si tiene alguna duda sobre los presentes Términos, así como las Políticas Complementarias que rigen el Sitio, puede ponerse en contacto con ABASTO EN CASA a través del correo contacto@abastoencasa.com.
 
 <h1>13. PERSONALIZACIÓN DE CAMPAÑAS</h1>
 
@@ -122,9 +122,9 @@ El Usuario que adquiera productos podrá solicitar la factura de los mismos al m
 <h1>15. LEGISLACIÓN APLICABLE Y JURISDICCIÓN</h1>
 
 Para todo lo relativo a la interpretación y cumplimiento de los presentes Términos, ABASTO EN CASA y el Usuario se someten expresamente a las leyes y a los tribunales competentes de la Ciudad de México, renunciando para cualquier efecto otro fuero que por razón de sus domicilios presentes o futuros o por cualquier otra causa les pudiera corresponder.</p>
-  </>
-  )
- }
+      </>
+    )
+  }
 }
 
 export default Terms

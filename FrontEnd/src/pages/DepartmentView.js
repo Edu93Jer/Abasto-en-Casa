@@ -77,7 +77,6 @@ class Department extends Component {
     const { modalVisible } = this.state;
     return (
       <>
-        {/* <h1>{this.state.products[0].depart}</h1> */}
         <div className="site-card-wrapper">
           <Row gutter={16}>
             {this.state.products.map((item) => (
@@ -101,7 +100,7 @@ class Department extends Component {
               </Row>
             ))}
           </Row>
-        </div>,
+        </div>
       </>
     )
   }

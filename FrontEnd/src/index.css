@@ -54,9 +54,6 @@ code {
   height: 85px !important;
 }
 
-/* ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal
-esta clase se supone es donde tengo que separara el login y signup de mi logo (header) */
-
 .ant-menu.ant-menu-dark {
   background: #7cb305 !important;
 }
@@ -115,8 +112,6 @@ esta clase se supone es donde tengo que separara el login y signup de mi logo (h
 
 .site-layout-background {
   padding-top: 120px !important;
-  /* padding-left: 200px !important;
-  padding-right: 50px !important; */
 }
 
 
@@ -170,6 +165,11 @@ esta clase se supone es donde tengo que separara el login y signup de mi logo (h
   border-color: #7cb305 !important;
 }
 
-/* display: flex;
-flex-flow: row wrap;
-justify-content: space-between */
+.Link{
+  color: #f0f0f0 !important;
+  text-decoration: none !important;
+}
+
+.Link:hover{
+  color: #fa8c16 !important;
+}
