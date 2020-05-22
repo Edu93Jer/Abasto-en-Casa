@@ -13,13 +13,13 @@ code {
 }
 
 .Navbar {
-  background: #7cb305 !important;
+  background:#7cb305 !important;
   color: white;
   padding-top: 50px !important;
 }
 
 .ant-layout-sider-zero-width-trigger {
-  background: #7cb305 !important;
+  background:#7cb305 !important;
   margin-top: 20px;
 }
 
@@ -49,13 +49,13 @@ code {
 }
 
 .ant-layout-header {
-  background: #7cb305 !important;
+  background:#7cb305 !important;
   padding: 0 20px !important;
   height: 85px !important;
 }
 
 .ant-menu.ant-menu-dark {
-  background: #7cb305 !important;
+  background:#7cb305 !important;
 }
 
 .ant-menu-submenu-selected {

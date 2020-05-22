@@ -21,7 +21,7 @@ exports.allOrdersUser = async (req, res) => {
 
 exports.detailOrder = async (req, res) => {
  const { id } = req.params
- const order = await Order.findById(id).populate('user') //el populate no me esta sirviendo!!!
+ const order = await Order.findById(id).populate('user')
  res.status(200).json({ order })
 }
 

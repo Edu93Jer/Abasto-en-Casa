@@ -27,7 +27,7 @@ class Login extends Component {
 
   render() {
     return (
-      <>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         {!this.state.loading && <p>{this.state.msg}</p>}
         {this.state.loading && <p>Loading...</p>}
         <Form name="login" className="login-form" initialValues={{ remember: true }} onFinish={this.onFinish}>
@@ -41,6 +41,8 @@ class Login extends Component {
               <GoogleCircleFilled className='GgLogin' /> Continuar con Google.
           </a>
           </Button>
+          <br />
+          <br />
           <Form.Item name="email" rules={
             [{ type: 'email', message: 'La entrada no es un correo electrónico válido' },
             { required: true, message: 'Inserta tu correo electrónico' }]
@@ -62,7 +64,7 @@ class Login extends Component {
             <Link to='/signup'>Crear Cuenta</Link>
           </Form.Item>
         </Form>
-      </>
+      </div>
     );
   };
 }
