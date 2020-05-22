@@ -47,6 +47,7 @@ class OrderDetail extends Component {
  async componentDidMount() {
   const { id } = this.props.match.params
   const { data } = await ORDER_SERVICE.DETAIL(id)
+  console.log(data)
   const { order } = data
   this.setState({ order: order })
  }
@@ -74,18 +75,17 @@ class OrderDetail extends Component {
 
 
  render() {
-  const { total } = this.state.order
   return (
    <>
 
     <Descriptions title={<>Pedido No. {this.state.order._id}</>}>
-     <Descriptions.Item label="Usuario"><>{this.state.order.user}</></Descriptions.Item>
+     <Descriptions.Item label="Usuario"><>{this.state.order.user?.name}</></Descriptions.Item>
      <Descriptions.Item label="Fecha">
       <Moment format='DD/MM/YYYY'>
        {this.state.order.createdAt}
       </Moment>
      </Descriptions.Item>
-     <Descriptions.Item label="Precio Total"><p> ${total} MXN </p></Descriptions.Item>
+     <Descriptions.Item label="Precio Total"><p> ${this.state.order.total?.toFixed(2)} MXN </p></Descriptions.Item>
      <Descriptions.Item label="Pagada">
       <>
        {this.state.order.paid ? (
