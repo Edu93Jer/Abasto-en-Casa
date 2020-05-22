@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { MyContext } from '../context/context'
-import { Table, Button } from 'antd';
-import { DeleteTwoTone, MinusSquareTwoTone, PlusSquareTwoTone, CreditCardTwoTone } from '@ant-design/icons'
+import { Table, Descriptions } from 'antd';
+import { CheckCircleTwoTone, CloseCircleTwoTone } from '@ant-design/icons';
 import ORDER_SERVICE from '../services/order'
+import Moment from 'react-moment'
 
 class OrderDetail extends Component {
  state = {
@@ -45,8 +46,9 @@ class OrderDetail extends Component {
 
  async componentDidMount() {
   const { id } = this.props.match.params
-  const dataSource = await ORDER_SERVICE.DETAIL(id)
-  this.setState({ order: dataSource })
+  const { data } = await ORDER_SERVICE.DETAIL(id)
+  const { order } = data
+  this.setState({ order: order })
  }
 
  changeQuantity = (quantity, product) => {
@@ -70,22 +72,35 @@ class OrderDetail extends Component {
   this.context.setCart(productsUpdated)
  }
 
- createOrder = async (totalOrder) => {
-  const products = this.state.order
-  const total = totalOrder
-  await ORDER_SERVICE.CREATE({ products, total })
-  this.setState({ order: [] })
-  this.context.setCart([])
-  this.props.history.push('/orders')
- }
 
  render() {
-  console.log(this.state)
+  const { total } = this.state.order
   return (
    <>
-    <h1>Carrito de Compra</h1>
+
+    <Descriptions title={<>Pedido No. {this.state.order._id}</>}>
+     <Descriptions.Item label="Usuario"><>{this.state.order.user}</></Descriptions.Item>
+     <Descriptions.Item label="Fecha">
+      <Moment format='DD/MM/YYYY'>
+       {this.state.order.createdAt}
+      </Moment>
+     </Descriptions.Item>
+     <Descriptions.Item label="Precio Total"><p> ${total} MXN </p></Descriptions.Item>
+     <Descriptions.Item label="Pagada">
+      <>
+       {this.state.order.paid ? (
+        <CheckCircleTwoTone twoToneColor="#7cb305" style={{ fontSize: 'x-large' }} />
+       ) : (
+         < CloseCircleTwoTone twoToneColor="#fa8c16" style={{ fontSize: 'x-large' }} />
+        )}
+      </>
+     </Descriptions.Item>
+     <Descriptions.Item label="Dirección de Entrega">
+      <>{this.state.order.shippingAddress}</>
+     </Descriptions.Item>
+    </Descriptions>
     <Table
-     dataSource={this.state.order}
+     dataSource={this.state.order.products}
      columns={this.state.columns}
      pagination={false}
      summary={pageData => {
@@ -100,14 +115,10 @@ class OrderDetail extends Component {
          <Table.Summary.Cell />
          <Table.Summary.Cell />
          <Table.Summary.Cell />
+         <Table.Summary.Cell />
          <Table.Summary.Cell>Total</Table.Summary.Cell>
          <Table.Summary.Cell>
           <p>${totalOrder.toFixed(2)} MXN</p>
-         </Table.Summary.Cell>
-         <Table.Summary.Cell>
-          <Button className='BuyButton' type="primary" shape="round" icon={<CreditCardTwoTone twoToneColor="#fa8c16" />} size='small' onClick={() => this.createOrder(totalOrder)} >
-           Comprar
-                    </Button>
          </Table.Summary.Cell>
         </Table.Summary.Row>
        </>

@@ -50,7 +50,7 @@ class Orders extends Component {
         render: paid => (
           <>
             {paid ? (
-              <CheckCircleTwoTone twoToneColor="#fa8c16" style={{ fontSize: 'x-large' }} />
+              <CheckCircleTwoTone twoToneColor="#7cb305" style={{ fontSize: 'x-large' }} />
             ) : (
                 <CloseCircleTwoTone twoToneColor="#fa8c16" style={{ fontSize: 'x-large' }} />
               )}
