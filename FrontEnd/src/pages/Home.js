@@ -51,8 +51,7 @@ class Home extends Component {
       if (this.context.cart.indexOf(item) > -1) {
         const index = this.context.cart.indexOf(item)
         this.context.cart[index].quantity = this.context.cart[index].quantity + 1
-        const newCart = [...this.context.cart]
-        this.context.setCart(newCart)
+        this.openNotificationWithIcon(item)
       } else {
         const newCart = [...this.context.cart, item]
         this.context.setCart(newCart)
