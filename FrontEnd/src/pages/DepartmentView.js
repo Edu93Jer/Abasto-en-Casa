@@ -49,9 +49,13 @@ class Department extends Component {
   };
 
   addToCart = (item) => {
-    const newCart = [...this.context.cart, item]
-    this.context.setCart(newCart)
-    this.openNotificationWithIcon(item)
+    if (this.context.loggedUser) {
+      const newCart = [...this.context.cart, item]
+      this.context.setCart(newCart)
+      this.openNotificationWithIcon(item)
+    } else {
+      this.props.history.push('/login')
+    }
   }
 
   openNotificationWithIcon = item => {
