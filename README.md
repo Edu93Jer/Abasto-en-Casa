@@ -27,11 +27,11 @@ Para el frontend se deben de correr los siguientes comandos, primero entrar a la
 * Express
 * React
 * Nodejs
-*AntDesign
+* AntDesign
 
 ## Autor ✒️
 
-* **Eduardo Zamarrón** - ** - [Edu93Jer](https://github.com/Edu93Jer)
+* **Eduardo Zamarrón** - [Edu93Jer](https://www.linkedin.com/in/eduardo-zamarron/)
 
 ## Gracias por leer hasta aquí!  🎁
 
@@ -41,4 +41,4 @@ Para el frontend se deben de correr los siguientes comandos, primero entrar a la
 
 
 ---
-Hecho ⌨️ con ❤️ y 🥚🥚's por [Edu93Jer](https://github.com/Edu93Jer) 🤓
+Hecho ⌨️ con ❤️ y 🥚🥚's por [Edu93Jer](https://www.linkedin.com/in/eduardo-zamarron/) 🤓
